@@ -3,5 +3,6 @@
 !cfg/conf.php
 !tpl/bootstrap5.php
 !css/pursuit.css
+!js/pursuit.js
 !img/pursuit-mark.svg
 !deploy/nginx/hsts.conf

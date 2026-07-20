@@ -86,6 +86,11 @@ body.pursuit-theme::before {
 }
 
 .pursuit-theme .navbar .container-fluid {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	gap: 16px;
+	justify-content: stretch;
+	width: 100%;
 	max-width: 1440px;
 	padding: 0;
 }
@@ -94,7 +99,7 @@ body.pursuit-theme::before {
 	display: inline-flex;
 	align-items: center;
 	gap: 12px;
-	margin-right: clamp(20px, 4vw, 64px);
+	margin-right: 0;
 	color: var(--pursuit-black);
 	font-family: "Galano Grotesque", "Helvetica Neue", Helvetica, sans-serif;
 	font-size: 1.45rem;
@@ -111,6 +116,65 @@ body.pursuit-theme::before {
 	color: var(--pursuit-purple);
 	font-style: normal;
 	font-weight: 500;
+}
+
+.pursuit-settings-panel {
+	display: flex;
+	align-items: center;
+	gap: 18px;
+	width: 100%;
+	padding: 12px;
+	border: 1px solid color-mix(in srgb, var(--pursuit-black) 28%, transparent);
+	border-radius: 24px;
+	background: color-mix(in srgb, var(--pursuit-gray) 76%, var(--pursuit-white));
+}
+
+.pursuit-settings-list {
+	min-width: 0;
+	flex: 1 1 auto;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+.pursuit-global-controls {
+	flex: 0 0 auto;
+	flex-direction: row;
+	align-items: center;
+}
+
+.pursuit-settings-list > .nav-item {
+	min-width: 0;
+}
+
+.pursuit-settings-list #expiration {
+	flex: 0 0 174px;
+}
+
+.pursuit-settings-list #formatter {
+	flex: 0 0 198px;
+}
+
+.pursuit-settings-list #pasteExpiration,
+.pursuit-settings-list #pasteFormatter {
+	min-width: 0;
+	width: 100%;
+}
+
+.pursuit-settings-list #burnafterreadingoption {
+	padding-inline: 6px;
+}
+
+.pursuit-settings-list #password {
+	min-width: 230px;
+}
+
+.pursuit-settings-list #attach {
+	align-self: center;
+}
+
+.pursuit-expiration-mobile-slot {
+	display: none;
 }
 
 .pursuit-theme main {
@@ -317,16 +381,93 @@ body.pursuit-theme::before {
 }
 
 @media (max-width: 991.98px) {
-	.pursuit-theme .navbar-collapse {
-		padding-top: 18px;
+	.pursuit-settings-panel {
+		align-items: stretch;
+		flex-direction: column;
 	}
 
-	.pursuit-theme .navbar-nav {
-		align-items: stretch !important;
+	.pursuit-settings-list,
+	.pursuit-global-controls {
+		width: 100%;
+	}
+
+	.pursuit-global-controls {
+		justify-content: flex-end;
 	}
 
 	.pursuit-intro {
 		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 767.98px) {
+	.pursuit-theme .navbar {
+		padding-block: 16px;
+	}
+
+	.pursuit-settings-panel {
+		gap: 14px;
+		padding: 16px;
+		border-radius: 24px;
+	}
+
+	.pursuit-settings-list {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr);
+		gap: 14px !important;
+	}
+
+	.pursuit-settings-list > .nav-item,
+	.pursuit-settings-list #expiration,
+	.pursuit-settings-list #formatter,
+	.pursuit-settings-list #password,
+	.pursuit-settings-list #attach {
+		width: 100%;
+		min-width: 0;
+		flex-basis: auto;
+	}
+
+	.pursuit-settings-list #expiration,
+	.pursuit-settings-list #formatter {
+		display: grid !important;
+		grid-template-columns: auto minmax(0, 1fr);
+		gap: 10px;
+		align-items: center;
+	}
+
+	.pursuit-expiration-mobile-slot:not(:empty) {
+		display: block;
+		margin: -4px 0 18px;
+	}
+
+	.pursuit-expiration-mobile-slot #expiration {
+		display: grid !important;
+		grid-template-columns: auto minmax(0, 1fr);
+		gap: 12px;
+		align-items: center;
+		padding: 14px 16px;
+		border: 1px solid color-mix(in srgb, var(--pursuit-black) 28%, transparent);
+		border-radius: 16px;
+		background: color-mix(in srgb, var(--pursuit-gray) 76%, var(--pursuit-white));
+	}
+
+	.pursuit-expiration-mobile-slot #pasteExpiration {
+		min-width: 0;
+		width: 100%;
+	}
+
+	.pursuit-settings-list #password .input-group,
+	.pursuit-settings-list #passwordinput {
+		width: 100%;
+	}
+
+	.pursuit-settings-list #attach .nav-link {
+		padding-inline: 0;
+	}
+
+	.pursuit-global-controls {
+		justify-content: flex-start;
+		padding-top: 2px;
 	}
 }
 
