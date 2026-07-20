@@ -13,6 +13,8 @@ sent to the server.
   and multi-platform digest
 - Render service: Docker web service, Starter plan, Oregon region, one instance
 - Persistent storage: 1 GB disk mounted at `/srv/data`
+- Encrypted payload limit: 50 MB (approximately 35-40 MB for typical binary
+  attachments after browser-side encoding and encryption)
 - Health check: `GET /`
 - Container port: `8080`
 
@@ -23,6 +25,11 @@ encryption implementation.
 The persistent disk is required. Without it, encrypted pastes, server salt,
 traffic-limiter state, and purge state disappear on restart or deploy. Render
 disks also make this a single-instance service and disable zero-downtime deploys.
+
+The child image raises Nginx and PHP request ceilings to 64 MB and PHP's memory
+limit to 256 MB. Keep those ceilings above `main.sizelimit` in `cfg/conf.php`.
+The 50 MB PrivateBin limit is deliberately below the proxy and runtime limits;
+larger attachments should use a storage flow designed for chunked uploads.
 
 ## Local verification
 

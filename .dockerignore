@@ -6,3 +6,5 @@
 !js/pursuit.js
 !img/pursuit-mark.svg
 !deploy/nginx/hsts.conf
+!deploy/nginx/uploads.conf
+!deploy/php/uploads.ini
