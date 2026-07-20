@@ -104,7 +104,7 @@ endif;
 						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="<?php echo I18n::_('Close') ?>"></button>
 					</div>
 					<div class="modal-body text-center">
-						<button id="loadconfirm-open-now" type="button" class="btn btn-success" data-bs-dismiss="modal"><svg width="16" height="16" fill="currentColor" aria-hidden="true"><use href="img/bootstrap-icons.svg#cloud-download" /></svg> <?php echo I18n::_('Yes, see it') ?></button>
+						<button id="loadconfirm-open-now" type="button" class="btn btn-success" data-bs-dismiss="modal"><?php echo I18n::_('Yes, see it') ?></button>
 					</div>
 				</div>
 			</div>
@@ -492,10 +492,9 @@ endif;
 						<div class="pursuit-create-row">
 							<p>Create a secret link and send it privately.</p>
 							<button id="sendbutton" type="button" tabindex="2" class="hidden btn btn-primary d-flex justify-content-center align-items-center gap-1">
-								<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
-									<path d="M4.715 6.542 3.343 7.914a3 3 0 0 0 4.243 4.243l1.828-1.828-.707-.707-1.828 1.829A2 2 0 1 1 4.05 8.622L5.422 7.25z" />
-									<path d="m6.542 4.715 1.372-1.372a3 3 0 0 1 4.243 4.243l-1.828 1.828-.707-.707 1.829-1.828A2 2 0 0 0 8.622 4.05L7.25 5.422z" />
-									<path d="M5.353 9.354a.5.5 0 0 1 0-.708l3.293-3.293a.5.5 0 0 1 .708.708L6.061 9.354a.5.5 0 0 1-.708 0" />
+								<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+									<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+									<path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
 								</svg> Create link
 							</button>
 						</div>
