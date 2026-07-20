@@ -16,7 +16,7 @@ use PrivateBin\I18n;
 		<title><?php echo I18n::_($NAME); ?></title>
 		<link type="text/css" rel="stylesheet" href="css/bootstrap5/bootstrap<?php echo I18n::isRtl() ? '.rtl' : ''; ?>-5.3.8.css" />
 		<link type="text/css" rel="stylesheet" href="css/bootstrap5/privatebin.css?<?php echo rawurlencode($VERSION); ?>" />
-		<link type="text/css" rel="stylesheet" href="css/pursuit.css?<?php echo rawurlencode($VERSION); ?>-pursuit-9" />
+		<link type="text/css" rel="stylesheet" href="css/pursuit.css?<?php echo rawurlencode($VERSION); ?>-pursuit-10" />
 <?php
 if ($SYNTAXHIGHLIGHTING) :
 ?>
@@ -57,7 +57,7 @@ endif;
 		<?php $this->_scriptTag('js/purify-3.4.1.js', 'defer'); ?>
 		<?php $this->_scriptTag('js/legacy.js', 'defer'); ?>
 		<?php $this->_scriptTag('js/privatebin.js', 'defer'); ?>
-		<script defer type="text/javascript" data-cfasync="false" src="js/pursuit.js?<?php echo rawurlencode($VERSION); ?>-pursuit-9" crossorigin="anonymous"></script>
+		<script defer type="text/javascript" data-cfasync="false" src="js/pursuit.js?<?php echo rawurlencode($VERSION); ?>-pursuit-10" crossorigin="anonymous"></script>
 		<!-- icon -->
 		<link rel="icon" type="image/svg+xml" href="img/pursuit-mark.svg" />
 		<link rel="manifest" href="manifest.json?<?php echo rawurlencode($VERSION); ?>" />
@@ -153,14 +153,10 @@ endif;
 		<nav class="navbar navbar-expand-lg bg-body-tertiary text-nowrap mb-3">
 			<div class="container-fluid">
 				<a class="reloadlink navbar-brand" href="">
-					<img alt="" src="img/pursuit-mark.svg" width="42" height="42" />
+					<img alt="" src="img/pursuit-mark.svg" width="48" height="48" />
 					<span>Pursuit <em>Secrets</em></span>
 				</a>
 				<div id="navbar" class="pursuit-settings-panel">
-					<div class="pursuit-settings-heading">
-						<p class="pursuit-settings-heading__eyebrow">Message options</p>
-						<p>Manage this message and how it is shared.</p>
-					</div>
 					<ul class="navbar-nav pursuit-settings-list me-auto gap-2 align-items-stretch">
 						<li id="loadingindicator" class="navbar-text hidden me-auto">
 							<svg width="16" height="16" fill="currentColor" aria-hidden="true"><use href="img/bootstrap-icons.svg#clock" /></svg>
@@ -226,7 +222,7 @@ if ($BURNAFTERREADINGSELECTED) :
 endif;
 ?> />
 								<label class="form-check-label" for="burnafterreading">
-									<?php echo I18n::_('Delete after it is opened'), PHP_EOL; ?>
+									<?php echo I18n::_('Delete after it’s opened'), PHP_EOL; ?>
 								</label>
 							</div>
 						</li>
@@ -358,7 +354,7 @@ endif;
 				<header class="pursuit-intro">
 					<div>
 						<p class="pursuit-intro__eyebrow">Private sharing</p>
-						<h1>Share a private message.</h1>
+						<h1>Share a secret.</h1>
 					</div>
 					<p class="pursuit-intro__note">Write your message, choose how long it should stay available, then share the link.</p>
 				</header>
@@ -521,8 +517,7 @@ endif;
 		</main>
 		<footer class="container-fluid mt-auto">
 			<div class="row">
-				<h5 class="col-md-5 col-xs-12"><?php echo I18n::_($NAME); ?></h5>
-				<p id="aboutbox" class="col-md-7 col-xs-12">
+				<p id="aboutbox" class="col-12">
 					Pursuit cannot read the messages you share here. Powered by the open-source <a href="https://privatebin.info/" rel="noopener noreferrer">PrivateBin</a> project.
 				</p>
 			</div>
