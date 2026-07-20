@@ -16,7 +16,7 @@ use PrivateBin\I18n;
 		<title><?php echo I18n::_($NAME); ?></title>
 		<link type="text/css" rel="stylesheet" href="css/bootstrap5/bootstrap<?php echo I18n::isRtl() ? '.rtl' : ''; ?>-5.3.8.css" />
 		<link type="text/css" rel="stylesheet" href="css/bootstrap5/privatebin.css?<?php echo rawurlencode($VERSION); ?>" />
-		<link type="text/css" rel="stylesheet" href="css/pursuit.css?<?php echo rawurlencode($VERSION); ?>-pursuit-10" />
+		<link type="text/css" rel="stylesheet" href="css/pursuit.css?<?php echo rawurlencode($VERSION); ?>-pursuit-12" />
 <?php
 if ($SYNTAXHIGHLIGHTING) :
 ?>
@@ -352,22 +352,22 @@ endif;
 		<main>
 			<section class="container-fluid mt-2">
 				<header class="pursuit-intro">
-					<div>
+					<div class="pursuit-intro__title">
 						<p class="pursuit-intro__eyebrow">Private sharing</p>
-						<h1>Share a secret.</h1>
+						<h1>Share a secret</h1>
 					</div>
 					<p class="pursuit-intro__note">Write your message, choose how long it should stay available, then share the link.</p>
-				</header>
 <?php
 if (!empty($NOTICE)) :
 ?>
-				<div role="alert" class="alert alert-info">
-					<svg width="16" height="16" fill="currentColor" aria-hidden="true"><use href="img/bootstrap-icons.svg#info-circle" /></svg>
-					<?php echo I18n::encode($NOTICE), PHP_EOL; ?>
-				</div>
+					<div role="note" class="pursuit-intro__notice">
+						<svg width="16" height="16" fill="currentColor" aria-hidden="true"><use href="img/bootstrap-icons.svg#info-circle" /></svg>
+						<?php echo I18n::encode($NOTICE), PHP_EOL; ?>
+					</div>
 <?php
 endif;
 ?>
+				</header>
 				<div id="remainingtime" role="alert" class="hidden alert alert-info">
 					<svg width="16" height="16" fill="currentColor" aria-hidden="true"><use href="img/bootstrap-icons.svg#fire" /></svg>
 				</div>

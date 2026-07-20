@@ -71,7 +71,7 @@ body.pursuit-theme::before {
 	inset: 0 0 auto;
 	z-index: 1100;
 	height: 5px;
-	background: linear-gradient(90deg, var(--pursuit-purple) 0 72%, var(--pursuit-yellow) 72% 86%, var(--pursuit-pink) 86%);
+	background: linear-gradient(90deg, var(--pursuit-purple) 0 72%, var(--pursuit-yellow) 72%);
 	content: "";
 }
 
@@ -136,8 +136,12 @@ body.pursuit-theme::before {
 .pursuit-intro {
 	position: relative;
 	display: grid;
+	grid-template-areas:
+		"title note"
+		"notice note";
 	grid-template-columns: minmax(0, 1.55fr) minmax(240px, 0.45fr);
-	gap: clamp(24px, 5vw, 72px);
+	column-gap: clamp(24px, 5vw, 72px);
+	row-gap: 22px;
 	align-items: end;
 	overflow: hidden;
 	margin: 0 0 clamp(22px, 3vw, 36px);
@@ -145,6 +149,10 @@ body.pursuit-theme::before {
 	border-radius: clamp(28px, 4vw, 48px);
 	background: var(--pursuit-purple);
 	color: #ffffff;
+}
+
+.pursuit-intro__title {
+	grid-area: title;
 }
 
 .pursuit-intro::after {
@@ -181,12 +189,29 @@ body.pursuit-theme::before {
 .pursuit-intro__note {
 	position: relative;
 	z-index: 1;
+	grid-area: note;
 	max-width: 360px;
 	margin: 0;
-	padding-top: 18px;
-	border-top: 2px solid rgb(255 255 255 / 55%);
 	font-size: clamp(1rem, 1.5vw, 1.2rem);
 	line-height: 1.48;
+}
+
+.pursuit-intro__notice {
+	position: relative;
+	z-index: 1;
+	display: flex;
+	grid-area: notice;
+	align-items: center;
+	gap: 9px;
+	max-width: 620px;
+	margin: 0;
+	color: #ffffff;
+	font-size: clamp(0.92rem, 1.25vw, 1rem);
+	line-height: 1.4;
+}
+
+.pursuit-intro__notice svg {
+	flex: 0 0 auto;
 }
 
 .pursuit-theme .form-control,
@@ -515,11 +540,18 @@ body.pursuit-theme::before {
 
 @media (max-width: 899.98px) {
 	.pursuit-intro {
+		grid-template-areas:
+			"title"
+			"note"
+			"notice";
 		grid-template-columns: 1fr;
+		row-gap: 22px;
 	}
 
 	.pursuit-intro__note {
 		max-width: 620px;
+		padding-top: 18px;
+		border-top: 2px solid rgb(255 255 255 / 55%);
 	}
 
 	.pursuit-global-controls {
