@@ -34,6 +34,22 @@
 	systemColorScheme.addEventListener('change', applySystemTheme);
 	applySystemTheme();
 
+	const deleteLinkLabel = document.querySelector('#deletelink span');
+	if (deleteLinkLabel !== null) {
+		const applyDeleteLinkLabel = () => {
+			if (deleteLinkLabel.textContent.trim() !== 'Delete link') {
+				deleteLinkLabel.textContent = 'Delete link';
+			}
+		};
+
+		new MutationObserver(applyDeleteLinkLabel).observe(deleteLinkLabel, {
+			childList: true,
+			characterData: true,
+			subtree: true,
+		});
+		applyDeleteLinkLabel();
+	}
+
 	const settingsPanel = document.getElementById('navbar');
 	const settingsSlot = document.getElementById('pursuit-settings-slot');
 

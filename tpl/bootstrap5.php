@@ -57,7 +57,7 @@ endif;
 		<?php $this->_scriptTag('js/purify-3.4.1.js', 'defer'); ?>
 		<?php $this->_scriptTag('js/legacy.js', 'defer'); ?>
 		<?php $this->_scriptTag('js/privatebin.js', 'defer'); ?>
-		<script defer type="text/javascript" data-cfasync="false" src="js/pursuit.js?<?php echo rawurlencode($VERSION); ?>-pursuit-10" crossorigin="anonymous"></script>
+		<script defer type="text/javascript" data-cfasync="false" src="js/pursuit.js?<?php echo rawurlencode($VERSION); ?>-pursuit-14" crossorigin="anonymous"></script>
 		<!-- icon -->
 		<link rel="icon" type="image/svg+xml" href="img/pursuit-mark.svg?<?php echo rawurlencode($VERSION); ?>-pursuit-11" />
 		<link rel="manifest" href="manifest.json?<?php echo rawurlencode($VERSION); ?>" />
@@ -356,7 +356,7 @@ endif;
 						<p class="pursuit-intro__eyebrow">Private sharing</p>
 						<h1>Share a secret</h1>
 					</div>
-					<p class="pursuit-intro__note">Don't share secrets, credit cards, or sensitive data in Slack, share a disappearing message instead</p>
+					<p class="pursuit-intro__note">Don't share secrets, credit cards, or sensitive data in Slack. Share a disappearing message instead.</p>
 <?php
 if (!empty($NOTICE)) :
 ?>
@@ -477,10 +477,10 @@ endif;
 					<h6 id="copyShortcutHint" class="col-md-12 nav justify-content-between align-items-center mb-2 hidden">
 						<small id="copyShortcutHintText" class="d-none d-md-inline">
 							<?php
-								echo I18n::_("To copy document press on the copy button or use the clipboard shortcut <kbd>%s</kbd>+<kbd>c</kbd>", I18n::getCopyHotkey())
+								echo I18n::_("To copy the text press the copy button or use the clipboard shortcut <kbd>%s</kbd>+<kbd>c</kbd>", strtolower(I18n::getCopyHotkey()))
 							?>
 						</small>
-						<button type="button" id="copyShortcutHintBtn" class="btn btn-secondary ms-auto"><?php echo I18n::_('Copy'); ?></button>
+						<button type="button" id="copyShortcutHintBtn" class="btn btn-secondary ms-auto">Copy text</button>
 					</h6>
 					<div id="prettymessage" class="card col-md-12 hidden">
 						<pre id="prettyprint" class="card-body col-md-12 prettyprint linenums:1"></pre>
