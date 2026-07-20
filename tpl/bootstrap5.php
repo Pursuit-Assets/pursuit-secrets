@@ -356,7 +356,7 @@ endif;
 						<p class="pursuit-intro__eyebrow">Private sharing</p>
 						<h1>Share a secret</h1>
 					</div>
-					<p class="pursuit-intro__note">Don't share secrets, credit cards, or sensitive data in Slack. Share a disappearing message instead.</p>
+					<p class="pursuit-intro__note">Don't share secrets, tokens, or sensitive data in Slack. Share a disappearing message instead.</p>
 <?php
 if (!empty($NOTICE)) :
 ?>
