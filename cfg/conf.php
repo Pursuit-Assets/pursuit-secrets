@@ -3,6 +3,7 @@
 
 [main]
 name = "Pursuit Secrets"
+basepath = "https://pursuit-secrets.onrender.com/"
 discussion = false
 password = true
 fileupload = true
