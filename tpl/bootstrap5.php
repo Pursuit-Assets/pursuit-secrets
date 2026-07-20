@@ -59,7 +59,7 @@ endif;
 		<?php $this->_scriptTag('js/privatebin.js', 'defer'); ?>
 		<script defer type="text/javascript" data-cfasync="false" src="js/pursuit.js?<?php echo rawurlencode($VERSION); ?>-pursuit-10" crossorigin="anonymous"></script>
 		<!-- icon -->
-		<link rel="icon" type="image/svg+xml" href="img/pursuit-mark.svg" />
+		<link rel="icon" type="image/svg+xml" href="img/pursuit-mark.svg?<?php echo rawurlencode($VERSION); ?>-pursuit-11" />
 		<link rel="manifest" href="manifest.json?<?php echo rawurlencode($VERSION); ?>" />
 		<meta name="theme-color" content="#4343ea" />
 		<!-- Twitter/social media cards -->
@@ -153,7 +153,7 @@ endif;
 		<nav class="navbar navbar-expand-lg bg-body-tertiary text-nowrap mb-3">
 			<div class="container-fluid">
 				<a class="reloadlink navbar-brand" href="">
-					<img alt="" src="img/pursuit-mark.svg" width="48" height="48" />
+					<img alt="" src="img/pursuit-mark.svg?<?php echo rawurlencode($VERSION); ?>-pursuit-11" width="48" height="48" />
 					<span>Pursuit <em>Secrets</em></span>
 				</a>
 				<div id="navbar" class="pursuit-settings-panel">
