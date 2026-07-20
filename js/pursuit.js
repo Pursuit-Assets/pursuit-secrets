@@ -5,25 +5,25 @@
 	'use strict';
 
 	const mobileLayout = window.matchMedia('(max-width: 767.98px)');
-	const settingsList = document.querySelector('.pursuit-settings-list');
-	const expiration = document.getElementById('expiration');
-	const mobileSlot = document.getElementById('pursuit-expiration-mobile-slot');
+	const settingsPanel = document.getElementById('navbar');
+	const desktopContainer = settingsPanel?.parentElement;
+	const mobileSlot = document.getElementById('pursuit-settings-mobile-slot');
 
-	if (settingsList === null || expiration === null || mobileSlot === null) {
+	if (settingsPanel === null || desktopContainer === null || mobileSlot === null) {
 		return;
 	}
 
-	const desktopNextSibling = expiration.nextSibling;
+	const desktopNextSibling = settingsPanel.nextSibling;
 
-	const updateExpirationPlacement = () => {
+	const updateSettingsPlacement = () => {
 		if (mobileLayout.matches) {
-			mobileSlot.append(expiration);
+			mobileSlot.append(settingsPanel);
 			return;
 		}
 
-		settingsList.insertBefore(expiration, desktopNextSibling);
+		desktopContainer.insertBefore(settingsPanel, desktopNextSibling);
 	};
 
-	mobileLayout.addEventListener('change', updateExpirationPlacement);
-	updateExpirationPlacement();
+	mobileLayout.addEventListener('change', updateSettingsPlacement);
+	updateSettingsPlacement();
 })();
