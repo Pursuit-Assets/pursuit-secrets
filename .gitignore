@@ -3,6 +3,7 @@
 .htpasswd
 cfg/*
 !cfg/conf.sample.php
+!cfg/conf.php
 !cfg/.htaccess
 
 # Ignore data/

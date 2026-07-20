@@ -1,5 +1,10 @@
 # [![PrivateBin](https://raw.githubusercontent.com/PrivateBin/assets/master/images/preview/logoSmall.png)](https://privatebin.info/)
 
+> **Pursuit deployment:** this fork adds the Pursuit Secrets theme and a
+> disk-backed Render deployment while keeping PrivateBin's cryptographic core
+> unchanged. See [PURSUIT.md](PURSUIT.md) for architecture, operations, and
+> upstream-update instructions.
+
 *Current version: 2.0.5*
 
 **PrivateBin** is a minimalist, open source online

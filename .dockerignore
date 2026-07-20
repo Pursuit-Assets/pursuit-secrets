@@ -1,0 +1,7 @@
+**
+!Dockerfile
+!cfg/conf.php
+!tpl/bootstrap5.php
+!css/pursuit.css
+!img/pursuit-mark.svg
+!deploy/nginx/hsts.conf

@@ -1,0 +1,364 @@
+/**
+ * Pursuit theme for PrivateBin 2.0.5.
+ * Brand direction adapted from the public pursuit.org design system.
+ */
+
+:root,
+[data-bs-theme="light"] {
+	--pursuit-black: #121212;
+	--pursuit-white: #ffffff;
+	--pursuit-gray: #f2f2f2;
+	--pursuit-gray-strong: #bfbfbf;
+	--pursuit-purple: #4343ea;
+	--pursuit-purple-muted: #7474ef;
+	--pursuit-pink: #ffd3c2;
+	--pursuit-yellow: #ecff00;
+	--pursuit-border: 1px solid var(--pursuit-black);
+	--bs-body-bg: var(--pursuit-white);
+	--bs-body-color: var(--pursuit-black);
+	--bs-primary: var(--pursuit-purple);
+	--bs-primary-rgb: 67, 67, 234;
+	--bs-secondary: var(--pursuit-black);
+	--bs-secondary-rgb: 18, 18, 18;
+	--bs-success: var(--pursuit-purple);
+	--bs-success-rgb: 67, 67, 234;
+	--bs-info: var(--pursuit-purple-muted);
+	--bs-info-rgb: 116, 116, 239;
+	--bs-border-color: var(--pursuit-black);
+	--bs-border-radius: 1rem;
+	--bs-border-radius-sm: 0.25rem;
+	--bs-border-radius-lg: 3rem;
+}
+
+[data-bs-theme="dark"] {
+	--pursuit-black: #f2f2f2;
+	--pursuit-white: #121212;
+	--pursuit-gray: #1b1b1b;
+	--pursuit-gray-strong: #8b8b8b;
+	--pursuit-purple: #7474ef;
+	--pursuit-purple-muted: #9292f4;
+	--pursuit-pink: #7a5147;
+	--pursuit-yellow: #d9eb00;
+	--pursuit-border: 1px solid var(--pursuit-black);
+	--bs-body-bg: var(--pursuit-gray);
+	--bs-body-color: var(--pursuit-black);
+	--bs-primary: var(--pursuit-purple);
+	--bs-primary-rgb: 116, 116, 239;
+	--bs-secondary: #323232;
+	--bs-secondary-rgb: 50, 50, 50;
+	--bs-success: var(--pursuit-purple);
+	--bs-success-rgb: 116, 116, 239;
+	--bs-info: var(--pursuit-purple-muted);
+	--bs-info-rgb: 146, 146, 244;
+	--bs-border-color: var(--pursuit-black);
+}
+
+html {
+	background: var(--pursuit-white);
+}
+
+body.pursuit-theme {
+	min-height: 100dvh;
+	background: var(--pursuit-white);
+	font-family: "Graphik", "Helvetica Neue", Helvetica, sans-serif;
+	letter-spacing: -0.01em;
+}
+
+body.pursuit-theme::before {
+	position: fixed;
+	inset: 0 0 auto;
+	z-index: 1100;
+	height: 5px;
+	background: linear-gradient(90deg, var(--pursuit-purple) 0 72%, var(--pursuit-yellow) 72% 86%, var(--pursuit-pink) 86%);
+	content: "";
+}
+
+.pursuit-theme a {
+	color: var(--pursuit-purple);
+	text-underline-offset: 0.2em;
+}
+
+.pursuit-theme .navbar {
+	margin: 5px 0 0 !important;
+	padding: 18px clamp(16px, 3vw, 52px);
+	border-bottom: 1px solid var(--pursuit-gray-strong);
+	background: var(--pursuit-white) !important;
+}
+
+.pursuit-theme .navbar .container-fluid {
+	max-width: 1440px;
+	padding: 0;
+}
+
+.pursuit-theme .navbar-brand {
+	display: inline-flex;
+	align-items: center;
+	gap: 12px;
+	margin-right: clamp(20px, 4vw, 64px);
+	color: var(--pursuit-black);
+	font-family: "Galano Grotesque", "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 1.45rem;
+	font-weight: 700;
+	letter-spacing: -0.06em;
+}
+
+.pursuit-theme .navbar-brand img {
+	width: 42px;
+	height: 42px;
+}
+
+.pursuit-theme .navbar-brand em {
+	color: var(--pursuit-purple);
+	font-style: normal;
+	font-weight: 500;
+}
+
+.pursuit-theme main {
+	width: min(100%, 1040px);
+	margin-inline: auto;
+	padding: clamp(18px, 3vw, 44px) clamp(14px, 3vw, 52px) 72px;
+}
+
+.pursuit-theme main > section.container-fluid {
+	padding-inline: 0;
+}
+
+.pursuit-intro {
+	position: relative;
+	display: grid;
+	grid-template-columns: minmax(0, 1.5fr) minmax(240px, 0.5fr);
+	gap: 24px;
+	align-items: end;
+	overflow: hidden;
+	margin: 0 0 clamp(22px, 4vw, 48px);
+	padding: clamp(24px, 5vw, 72px);
+	border: 0;
+	border-radius: 48px;
+	background: var(--pursuit-purple);
+	color: #ffffff;
+}
+
+.pursuit-intro::after {
+	position: absolute;
+	top: -52px;
+	right: -52px;
+	width: 150px;
+	height: 150px;
+	border: 2px solid #121212;
+	border-radius: 50%;
+	background: var(--pursuit-yellow);
+	content: "";
+}
+
+.pursuit-intro__eyebrow {
+	margin: 0 0 18px;
+	font-family: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+	font-size: 0.75rem;
+	font-weight: 600;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+}
+
+.pursuit-intro h1 {
+	max-width: 880px;
+	margin: 0;
+	font-family: "Galano Grotesque", "Helvetica Neue", Helvetica, sans-serif;
+	font-size: clamp(2.8rem, 7vw, 6.8rem);
+	font-weight: 700;
+	letter-spacing: -0.075em;
+	line-height: 0.88;
+}
+
+.pursuit-intro__note {
+	position: relative;
+	z-index: 1;
+	max-width: 360px;
+	margin: 0;
+	padding-top: 18px;
+	border-top: 2px solid rgb(255 255 255 / 55%);
+	font-size: clamp(1rem, 1.4vw, 1.2rem);
+	line-height: 1.45;
+}
+
+.pursuit-theme .form-control,
+.pursuit-theme .form-select,
+.pursuit-theme .input-group-text,
+.pursuit-theme .dropdown-menu,
+.pursuit-theme .modal-content,
+.pursuit-theme .card,
+.pursuit-theme .alert {
+	border: 1px solid var(--pursuit-gray-strong);
+	border-radius: 16px;
+}
+
+.pursuit-theme .form-control,
+.pursuit-theme .form-select {
+	background-color: var(--pursuit-white);
+	color: var(--pursuit-black);
+}
+
+.pursuit-theme .navbar .form-control,
+.pursuit-theme .navbar .form-select {
+	border: 0;
+	border-bottom: 1px solid var(--pursuit-black);
+	border-radius: 0;
+}
+
+.pursuit-theme .form-control:focus,
+.pursuit-theme .form-select:focus,
+.pursuit-theme .form-check-input:focus {
+	border-color: var(--pursuit-purple);
+	box-shadow: 0 0 0 4px rgb(67 67 234 / 22%);
+}
+
+.pursuit-theme #message {
+	min-height: 48dvh;
+	padding: clamp(18px, 2.5vw, 34px);
+	border: 1px solid var(--pursuit-gray-strong);
+	border-radius: 16px;
+	background: var(--pursuit-gray);
+	font-family: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+	font-size: clamp(1rem, 1.4vw, 1.2rem);
+	line-height: 1.6;
+	caret-color: var(--pursuit-purple);
+}
+
+.pursuit-theme .btn {
+	min-height: 48px;
+	border: 2px solid var(--pursuit-black);
+	border-radius: 999px;
+	font-family: "Galano Grotesque", "Helvetica Neue", Helvetica, sans-serif;
+	font-weight: 700;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	transition: transform 180ms ease, background-color 180ms ease;
+}
+
+.pursuit-theme .btn:hover {
+	transform: translateX(3px);
+}
+
+.pursuit-theme #sendbutton {
+	min-height: 56px;
+	padding-inline: 28px;
+}
+
+.pursuit-theme .btn-primary,
+.pursuit-theme .btn-success {
+	border-color: #121212;
+	background: var(--pursuit-purple);
+	color: #ffffff;
+}
+
+.pursuit-theme .btn-primary:hover,
+.pursuit-theme .btn-success:hover {
+	border-color: #121212;
+	background: var(--pursuit-purple-muted);
+	color: #ffffff;
+}
+
+.pursuit-theme .btn-secondary {
+	background: var(--pursuit-black);
+	color: var(--pursuit-white);
+}
+
+.pursuit-theme .alert-info {
+	background: color-mix(in srgb, var(--pursuit-purple) 13%, var(--pursuit-white));
+	color: var(--pursuit-black);
+}
+
+.pursuit-theme .alert-success {
+	background: var(--pursuit-yellow);
+	color: #121212;
+}
+
+.pursuit-theme .nav-tabs {
+	border-bottom: 2px solid var(--pursuit-black);
+}
+
+.pursuit-theme .nav-tabs .nav-link {
+	border: 0;
+	border-radius: 0;
+	color: var(--pursuit-black);
+	font-weight: 700;
+}
+
+.pursuit-theme .nav-tabs .nav-link.active {
+	background: var(--pursuit-black);
+	color: var(--pursuit-white);
+}
+
+.pursuit-theme .form-check-input:checked {
+	border-color: var(--pursuit-purple);
+	background-color: var(--pursuit-purple);
+}
+
+.pursuit-theme footer {
+	padding: 34px clamp(16px, 3vw, 52px) 38px;
+	border-top: 1px solid var(--pursuit-black);
+	background: var(--pursuit-black);
+	color: var(--pursuit-white);
+}
+
+.pursuit-theme footer .row {
+	max-width: 1440px;
+	margin-inline: auto;
+}
+
+.pursuit-theme footer h5 {
+	font-family: "Galano Grotesque", "Helvetica Neue", Helvetica, sans-serif;
+	font-size: clamp(1.4rem, 3vw, 2.4rem);
+	font-weight: 700;
+	letter-spacing: -0.05em;
+}
+
+.pursuit-theme footer a {
+	color: var(--pursuit-yellow);
+}
+
+@media (max-width: 991.98px) {
+	.pursuit-theme .navbar-collapse {
+		padding-top: 18px;
+	}
+
+	.pursuit-theme .navbar-nav {
+		align-items: stretch !important;
+	}
+
+	.pursuit-intro {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 575.98px) {
+	.pursuit-theme .navbar {
+		padding-inline: 14px;
+	}
+
+	.pursuit-intro {
+		padding: 26px 20px 30px;
+		border-radius: 24px;
+	}
+
+	.pursuit-intro::after {
+		top: -62px;
+		right: -62px;
+	}
+
+	.pursuit-intro h1 {
+		font-size: clamp(2.7rem, 16vw, 4.4rem);
+	}
+
+	.pursuit-theme #message {
+		min-height: 44dvh;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.pursuit-theme *,
+	.pursuit-theme *::before,
+	.pursuit-theme *::after {
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+}

@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: pursuit-secrets
+    runtime: docker
+    repo: https://github.com/Pursuit-Assets/pursuit-secrets
+    branch: master
+    plan: starter
+    region: oregon
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /
+    autoDeployTrigger: commit
+    numInstances: 1
+    envVars:
+      - key: PORT
+        value: 8080
+      - key: TZ
+        value: America/New_York
+      - key: PHP_TZ
+        value: America/New_York
+    disk:
+      name: pursuit-secrets-data
+      mountPath: /srv/data
+      sizeGB: 1

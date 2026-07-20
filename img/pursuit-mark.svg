@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-labelledby="title">
+  <title id="title">Pursuit</title>
+  <rect width="48" height="48" rx="24" fill="#ecff00"/>
+  <path fill="#121212" d="M14 10h14.4C35.4 10 40 14.6 40 21.1c0 6.6-4.6 11.1-11.6 11.1H22V40h-8V10Zm8 7v8.2h5.8c2.7 0 4.2-1.5 4.2-4.1S30.5 17 27.8 17H22Z"/>
+</svg>

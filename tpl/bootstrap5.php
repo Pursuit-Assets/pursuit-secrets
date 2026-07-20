@@ -1,4 +1,8 @@
 <?php declare(strict_types=1);
+/**
+ * Pursuit theme, adapted from PrivateBin 2.0.5's Bootstrap 5 template.
+ * PrivateBin is distributed under the zlib/libpng license; see LICENSE.md.
+ */
 use PrivateBin\I18n;
 ?><!DOCTYPE html>
 <html lang="<?php echo I18n::getLanguage(); ?>"<?php echo I18n::isRtl() ? ' dir="rtl"' : ''; ?> class="h-100">
@@ -12,6 +16,7 @@ use PrivateBin\I18n;
 		<title><?php echo I18n::_($NAME); ?></title>
 		<link type="text/css" rel="stylesheet" href="css/bootstrap5/bootstrap<?php echo I18n::isRtl() ? '.rtl' : ''; ?>-5.3.8.css" />
 		<link type="text/css" rel="stylesheet" href="css/bootstrap5/privatebin.css?<?php echo rawurlencode($VERSION); ?>" />
+		<link type="text/css" rel="stylesheet" href="css/pursuit.css?<?php echo rawurlencode($VERSION); ?>" />
 <?php
 if ($SYNTAXHIGHLIGHTING) :
 ?>
@@ -50,18 +55,13 @@ if ($MARKDOWN) :
 <?php
 endif;
 ?>
-		<?php $this->_scriptTag('js/purify-3.4.12.js', 'defer'); ?>
+		<?php $this->_scriptTag('js/purify-3.4.1.js', 'defer'); ?>
 		<?php $this->_scriptTag('js/legacy.js', 'defer'); ?>
 		<?php $this->_scriptTag('js/privatebin.js', 'defer'); ?>
 		<!-- icon -->
-		<link rel="apple-touch-icon" href="<?php echo I18n::encode($BASEPATH); ?>img/apple-touch-icon.png" sizes="180x180" />
-		<link rel="icon" type="image/png" href="img/favicon-32x32.png" sizes="32x32" />
-		<link rel="icon" type="image/png" href="img/favicon-16x16.png" sizes="16x16" />
+		<link rel="icon" type="image/svg+xml" href="img/pursuit-mark.svg" />
 		<link rel="manifest" href="manifest.json?<?php echo rawurlencode($VERSION); ?>" />
-		<link rel="mask-icon" href="img/safari-pinned-tab.svg" color="#ffcc00" />
-		<link rel="shortcut icon" href="img/favicon.ico">
-		<meta name="msapplication-config" content="browserconfig.xml">
-		<meta name="theme-color" content="#ffe57e" />
+		<meta name="theme-color" content="#4343ea" />
 		<!-- Twitter/social media cards -->
 		<meta name="twitter:card" content="summary" />
 		<meta name="twitter:title" content="<?php echo I18n::_('Encrypted note on %s', I18n::_($NAME)) ?>" />
@@ -75,7 +75,7 @@ endif;
 		<meta property="og:image:width" content="180" />
 		<meta property="og:image:height" content="180" />
 	</head>
-	<body role="document" data-compression="<?php echo rawurlencode($COMPRESSION); ?>" class="d-flex flex-column h-100">
+	<body role="document" data-compression="<?php echo rawurlencode($COMPRESSION); ?>" class="pursuit-theme d-flex flex-column h-100">
 		<div id="passwordmodal" tabindex="-1" class="modal fade" role="dialog" aria-hidden="true">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
@@ -153,7 +153,8 @@ endif;
 		<nav class="navbar navbar-expand-lg bg-body-tertiary text-nowrap mb-3">
 			<div class="container-fluid">
 				<a class="reloadlink navbar-brand" href="">
-					<img alt="<?php echo I18n::_($NAME); ?>" src="img/icon.svg" height="38" />
+					<img alt="" src="img/pursuit-mark.svg" width="42" height="42" />
+					<span>Pursuit <em>Secrets</em></span>
 				</a>
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="<?php echo I18n::_('Toggle navigation'); ?>">
 					<span class="navbar-toggler-icon"></span>
@@ -359,6 +360,13 @@ endif;
 		</nav>
 		<main>
 			<section class="container-fluid mt-2">
+				<header class="pursuit-intro">
+					<div>
+						<p class="pursuit-intro__eyebrow">Zero-knowledge sharing</p>
+						<h1>Share the secret.<br />Keep the key.</h1>
+					</div>
+					<p class="pursuit-intro__note">Your message is encrypted in this browser before it leaves your device. The decryption key stays in the link—not on this server.</p>
+				</header>
 <?php
 if (!empty($NOTICE)) :
 ?>
@@ -517,16 +525,10 @@ endif;
 		</main>
 		<footer class="container-fluid mt-auto">
 			<div class="row">
-				<h5 class="col-md-5 col-xs-8"><?php echo I18n::_($NAME); ?> <small>- <?php echo I18n::_('Because ignorance is bliss'); ?></small></h5>
+				<h5 class="col-md-5 col-xs-8"><?php echo I18n::_($NAME); ?> <small>— Built for Pursuit</small></h5>
 				<p class="col-md-1 col-xs-4 text-center"><?php echo $VERSION; ?></p>
 				<p id="aboutbox" class="col-md-6 col-xs-12">
-					<?php echo sprintf(
-                        I18n::_('%s is a minimalist, open source online pastebin where the server has zero knowledge of stored data. Data is encrypted/decrypted %sin the browser%s using 256 bits AES.',
-                            I18n::_($NAME),
-                            '%s', '%s'
-                        ),
-                        '<i>', '</i>'), ' ', $INFO, PHP_EOL;
-                    ?>
+					Encrypted and decrypted in your browser using 256-bit AES-GCM. Powered by the open-source <a href="https://privatebin.info/" rel="noopener noreferrer">PrivateBin</a> project.
 				</p>
 			</div>
 		</footer>
