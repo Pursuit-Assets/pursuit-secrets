@@ -8,13 +8,13 @@
 	--pursuit-black: #121212;
 	--pursuit-white: #ffffff;
 	--pursuit-gray: #f2f2f2;
-	--pursuit-gray-strong: #bfbfbf;
+	--pursuit-gray-strong: #a6a6a6;
 	--pursuit-purple: #4343ea;
 	--pursuit-purple-muted: #7474ef;
 	--pursuit-pink: #ffd3c2;
 	--pursuit-yellow: #ecff00;
 	--pursuit-control-surface: #ffffff;
-	--pursuit-border: 1px solid var(--pursuit-black);
+	--pursuit-control-border: rgb(18 18 18 / 24%);
 	--bs-body-bg: var(--pursuit-white);
 	--bs-body-color: var(--pursuit-black);
 	--bs-primary: var(--pursuit-purple);
@@ -27,21 +27,21 @@
 	--bs-info-rgb: 116, 116, 239;
 	--bs-border-color: var(--pursuit-black);
 	--bs-border-radius: 1rem;
-	--bs-border-radius-sm: 0.25rem;
-	--bs-border-radius-lg: 3rem;
+	--bs-border-radius-sm: 0.5rem;
+	--bs-border-radius-lg: 2rem;
 }
 
 [data-bs-theme="dark"] {
-	--pursuit-black: #f2f2f2;
-	--pursuit-white: #121212;
+	--pursuit-black: #f4f4f4;
+	--pursuit-white: #111111;
 	--pursuit-gray: #1b1b1b;
-	--pursuit-gray-strong: #8b8b8b;
+	--pursuit-gray-strong: #858585;
 	--pursuit-purple: #7474ef;
 	--pursuit-purple-muted: #9292f4;
 	--pursuit-pink: #7a5147;
 	--pursuit-yellow: #d9eb00;
-	--pursuit-control-surface: #262626;
-	--pursuit-border: 1px solid var(--pursuit-black);
+	--pursuit-control-surface: #242424;
+	--pursuit-control-border: rgb(244 244 244 / 24%);
 	--bs-body-bg: var(--pursuit-gray);
 	--bs-body-color: var(--pursuit-black);
 	--bs-primary: var(--pursuit-purple);
@@ -82,16 +82,13 @@ body.pursuit-theme::before {
 
 .pursuit-theme .navbar {
 	margin: 5px 0 0 !important;
-	padding: 18px clamp(16px, 3vw, 52px);
-	border-bottom: 1px solid var(--pursuit-gray-strong);
+	padding: 22px clamp(16px, 4vw, 56px);
+	border-bottom: 0;
 	background: var(--pursuit-white) !important;
 }
 
 .pursuit-theme .navbar .container-fluid {
-	display: grid;
-	grid-template-columns: minmax(0, 1fr);
-	gap: 16px;
-	justify-content: stretch;
+	display: flex;
 	width: 100%;
 	max-width: 1440px;
 	padding: 0;
@@ -120,73 +117,15 @@ body.pursuit-theme::before {
 	font-weight: 500;
 }
 
-.pursuit-settings-panel {
-	display: flex;
-	align-items: center;
-	gap: 18px;
-	width: 100%;
-	padding: 12px;
-	border: 1px solid color-mix(in srgb, var(--pursuit-black) 28%, transparent);
-	border-radius: 24px;
-	background: color-mix(in srgb, var(--pursuit-gray) 76%, var(--pursuit-white));
-}
-
-.pursuit-settings-list {
-	min-width: 0;
-	flex: 1 1 auto;
-	flex-direction: row;
-	flex-wrap: wrap;
-	align-items: center;
-}
-
-.pursuit-global-controls {
-	flex: 0 0 auto;
-	flex-direction: row;
-	align-items: center;
-}
-
-.pursuit-global-controls:not(:has(> li)) {
-	display: none;
-}
-
-.pursuit-settings-list > .nav-item {
-	min-width: 0;
-}
-
-.pursuit-settings-list #expiration {
-	flex: 0 0 174px;
-}
-
-.pursuit-settings-list #formatter {
-	flex: 0 0 198px;
-}
-
-.pursuit-settings-list #pasteExpiration,
-.pursuit-settings-list #pasteFormatter {
-	min-width: 0;
-	width: 100%;
-}
-
-.pursuit-settings-list #burnafterreadingoption {
-	padding-inline: 6px;
-}
-
-.pursuit-settings-list #password {
-	min-width: 230px;
-}
-
-.pursuit-settings-list #attach {
-	align-self: center;
-}
-
-.pursuit-settings-mobile-slot {
+/* Keep the header brand-only while the script relocates the settings. */
+.pursuit-theme .navbar .pursuit-settings-panel {
 	display: none;
 }
 
 .pursuit-theme main {
-	width: min(100%, 1040px);
+	width: min(100%, 1160px);
 	margin-inline: auto;
-	padding: clamp(18px, 3vw, 44px) clamp(14px, 3vw, 52px) 72px;
+	padding: clamp(12px, 2vw, 28px) clamp(14px, 4vw, 52px) 72px;
 }
 
 .pursuit-theme main > section.container-fluid {
@@ -196,22 +135,21 @@ body.pursuit-theme::before {
 .pursuit-intro {
 	position: relative;
 	display: grid;
-	grid-template-columns: minmax(0, 1.5fr) minmax(240px, 0.5fr);
-	gap: 24px;
+	grid-template-columns: minmax(0, 1.55fr) minmax(240px, 0.45fr);
+	gap: clamp(24px, 5vw, 72px);
 	align-items: end;
 	overflow: hidden;
-	margin: 0 0 clamp(22px, 4vw, 48px);
-	padding: clamp(24px, 5vw, 72px);
-	border: 0;
-	border-radius: 48px;
+	margin: 0 0 clamp(22px, 3vw, 36px);
+	padding: clamp(28px, 5vw, 68px);
+	border-radius: clamp(28px, 4vw, 48px);
 	background: var(--pursuit-purple);
 	color: #ffffff;
 }
 
 .pursuit-intro::after {
 	position: absolute;
-	top: -52px;
-	right: -52px;
+	top: -54px;
+	right: -54px;
 	width: 150px;
 	height: 150px;
 	border: 2px solid #121212;
@@ -220,8 +158,9 @@ body.pursuit-theme::before {
 	content: "";
 }
 
-.pursuit-intro__eyebrow {
-	margin: 0 0 18px;
+.pursuit-intro__eyebrow,
+.pursuit-settings-heading__eyebrow {
+	margin: 0 0 16px;
 	font-family: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 	font-size: 0.75rem;
 	font-weight: 600;
@@ -230,13 +169,13 @@ body.pursuit-theme::before {
 }
 
 .pursuit-intro h1 {
-	max-width: 880px;
+	max-width: 720px;
 	margin: 0;
 	font-family: "Galano Grotesque", "Helvetica Neue", Helvetica, sans-serif;
-	font-size: clamp(2.8rem, 7vw, 6.8rem);
+	font-size: clamp(3rem, 7vw, 6.2rem);
 	font-weight: 700;
 	letter-spacing: -0.075em;
-	line-height: 0.88;
+	line-height: 0.9;
 }
 
 .pursuit-intro__note {
@@ -246,8 +185,8 @@ body.pursuit-theme::before {
 	margin: 0;
 	padding-top: 18px;
 	border-top: 2px solid rgb(255 255 255 / 55%);
-	font-size: clamp(1rem, 1.4vw, 1.2rem);
-	line-height: 1.45;
+	font-size: clamp(1rem, 1.5vw, 1.2rem);
+	line-height: 1.48;
 }
 
 .pursuit-theme .form-control,
@@ -267,13 +206,6 @@ body.pursuit-theme::before {
 	color: var(--pursuit-black);
 }
 
-.pursuit-theme .navbar .form-control,
-.pursuit-theme .navbar .form-select {
-	border: 0;
-	border-bottom: 1px solid var(--pursuit-black);
-	border-radius: 0;
-}
-
 .pursuit-theme .form-control:focus,
 .pursuit-theme .form-select:focus,
 .pursuit-theme .form-check-input:focus {
@@ -281,16 +213,235 @@ body.pursuit-theme::before {
 	box-shadow: 0 0 0 4px rgb(67 67 234 / 22%);
 }
 
+.pursuit-theme .alert {
+	padding: 16px 18px;
+}
+
+.pursuit-theme .alert-info {
+	background: color-mix(in srgb, var(--pursuit-purple) 12%, var(--pursuit-white));
+	color: var(--pursuit-black);
+}
+
+.pursuit-theme .alert-success {
+	background: var(--pursuit-yellow);
+	color: #121212;
+}
+
+.pursuit-theme .nav-tabs {
+	gap: 8px;
+	margin: 26px 0 12px;
+	border: 0;
+}
+
+.pursuit-theme .nav-tabs .nav-link {
+	padding: 10px 18px;
+	border: 1px solid transparent;
+	border-radius: 999px;
+	color: var(--pursuit-black);
+	font-weight: 700;
+}
+
+.pursuit-theme .nav-tabs .nav-link:hover {
+	border-color: var(--pursuit-control-border);
+}
+
+.pursuit-theme .nav-tabs .nav-link.active {
+	border-color: var(--pursuit-black);
+	background: var(--pursuit-black);
+	color: var(--pursuit-white);
+}
+
+.pursuit-editor {
+	margin: 0;
+}
+
 .pursuit-theme #message {
 	min-height: 48dvh;
 	padding: clamp(18px, 2.5vw, 34px);
-	border: 1px solid var(--pursuit-gray-strong);
-	border-radius: 16px;
+	border: 1px solid var(--pursuit-control-border);
+	border-radius: 22px;
 	background: var(--pursuit-gray);
 	font-family: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-	font-size: clamp(1rem, 1.4vw, 1.2rem);
+	font-size: clamp(1rem, 1.4vw, 1.15rem);
 	line-height: 1.6;
 	caret-color: var(--pursuit-purple);
+}
+
+.pursuit-theme #message::placeholder {
+	color: color-mix(in srgb, var(--pursuit-black) 55%, transparent);
+}
+
+.pursuit-compose-controls {
+	margin-top: 20px;
+}
+
+.pursuit-settings-slot:empty,
+.pursuit-create-row:has(#sendbutton.hidden) {
+	display: none;
+}
+
+.pursuit-settings-panel {
+	display: grid;
+	grid-template-columns: minmax(180px, 0.7fr) minmax(0, 2fr);
+	gap: clamp(18px, 3vw, 40px);
+	align-items: start;
+	width: 100%;
+	padding: clamp(20px, 3vw, 32px);
+	border: 1px solid var(--pursuit-control-border);
+	border-radius: 28px;
+	background: color-mix(in srgb, var(--pursuit-gray) 84%, var(--pursuit-white));
+}
+
+.pursuit-settings-heading {
+	position: sticky;
+	top: 24px;
+}
+
+.pursuit-settings-heading__eyebrow {
+	margin-bottom: 10px;
+	color: var(--pursuit-purple);
+}
+
+.pursuit-settings-heading p:last-child {
+	max-width: 230px;
+	margin: 0;
+	color: color-mix(in srgb, var(--pursuit-black) 72%, transparent);
+	font-size: 0.95rem;
+	line-height: 1.45;
+}
+
+.pursuit-settings-list {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 12px !important;
+	width: 100%;
+	min-width: 0;
+	margin: 0 !important;
+}
+
+.pursuit-settings-list > li:has(> .hidden:only-child) {
+	display: none !important;
+}
+
+.pursuit-settings-list > .nav-item {
+	min-width: 0;
+}
+
+.pursuit-settings-list .pursuit-option:not(.pursuit-option--attach),
+.pursuit-settings-list .pursuit-option--burn,
+.pursuit-settings-list .pursuit-option--password {
+	min-height: 66px;
+	border: 1px solid var(--pursuit-control-border);
+	border-radius: 18px;
+	background: var(--pursuit-control-surface);
+}
+
+.pursuit-settings-list #expiration:not(.hidden),
+.pursuit-settings-list #formatter:not(.hidden) {
+	display: grid !important;
+	grid-template-columns: auto minmax(0, 1fr);
+	gap: 12px;
+	align-items: center;
+	padding: 8px 10px 8px 18px;
+}
+
+.pursuit-settings-list #expiration .form-label,
+.pursuit-settings-list #formatter .form-label {
+	margin: 0 !important;
+	font-weight: 600;
+	white-space: nowrap;
+}
+
+.pursuit-settings-panel .form-select {
+	min-width: 0;
+	min-height: 48px;
+	border: 0;
+	border-radius: 12px;
+	background-color: color-mix(in srgb, var(--pursuit-gray) 72%, var(--pursuit-control-surface));
+	font-weight: 600;
+}
+
+.pursuit-settings-list #burnafterreadingoption,
+.pursuit-settings-list #opendiscussionoption {
+	display: flex;
+	align-items: center;
+	min-height: 64px;
+	margin: 0;
+	padding: 14px 18px;
+}
+
+.pursuit-settings-list .form-check-input {
+	width: 1.3em;
+	height: 1.3em;
+	margin-right: 10px;
+	border-color: var(--pursuit-control-border);
+}
+
+.pursuit-theme .form-check-input:checked {
+	border-color: var(--pursuit-purple);
+	background-color: var(--pursuit-purple);
+}
+
+.pursuit-settings-list #password,
+.pursuit-settings-list #password .input-group {
+	width: 100%;
+	height: 100%;
+	min-width: 0;
+}
+
+.pursuit-settings-list #password .input-group {
+	overflow: hidden;
+	border-radius: 18px;
+}
+
+.pursuit-settings-list #passwordinput {
+	width: 1%;
+	min-width: 0;
+	min-height: 64px;
+	padding-inline: 18px;
+	border: 0;
+	border-radius: 0;
+	background: transparent;
+}
+
+.pursuit-settings-list #password .toggle-password {
+	width: 58px;
+	min-height: 64px;
+	border: 0;
+	border-left: 1px solid var(--pursuit-control-border);
+	border-radius: 0;
+}
+
+.pursuit-settings-list #password .toggle-password:hover {
+	transform: none;
+}
+
+.pursuit-settings-list #attach .nav-link {
+	display: flex;
+	align-items: center;
+	min-height: 66px;
+	padding: 14px 18px;
+	border: 1px solid color-mix(in srgb, var(--pursuit-purple) 48%, transparent);
+	border-radius: 18px;
+	background: color-mix(in srgb, var(--pursuit-purple) 9%, var(--pursuit-control-surface));
+	font-weight: 600;
+}
+
+.pursuit-settings-list .pursuit-option--actions {
+	grid-column: 1 / -1;
+	justify-content: flex-end;
+	order: 10;
+}
+
+.pursuit-global-controls {
+	grid-column: 2;
+	flex-direction: row;
+	justify-content: flex-end;
+	margin: 0;
+}
+
+.pursuit-global-controls:not(:has(> li)) {
+	display: none;
 }
 
 .pursuit-theme .btn {
@@ -306,11 +457,6 @@ body.pursuit-theme::before {
 
 .pursuit-theme .btn:hover {
 	transform: translateX(3px);
-}
-
-.pursuit-theme #sendbutton {
-	min-height: 56px;
-	padding-inline: 28px;
 }
 
 .pursuit-theme .btn-primary,
@@ -332,266 +478,151 @@ body.pursuit-theme::before {
 	color: var(--pursuit-white);
 }
 
-.pursuit-theme .alert-info {
-	background: color-mix(in srgb, var(--pursuit-purple) 13%, var(--pursuit-white));
-	color: var(--pursuit-black);
-}
-
-.pursuit-theme .alert-success {
-	background: var(--pursuit-yellow);
-	color: #121212;
-}
-
-.pursuit-theme .nav-tabs {
-	border-bottom: 2px solid var(--pursuit-black);
-}
-
-.pursuit-theme .nav-tabs .nav-link {
-	border: 0;
-	border-radius: 0;
-	color: var(--pursuit-black);
-	font-weight: 700;
-}
-
-.pursuit-theme .nav-tabs .nav-link.active {
+.pursuit-create-row {
+	display: flex;
+	gap: 24px;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 14px;
+	padding: 18px 20px 18px 24px;
+	border-radius: 22px;
 	background: var(--pursuit-black);
 	color: var(--pursuit-white);
 }
 
-.pursuit-theme .form-check-input:checked {
-	border-color: var(--pursuit-purple);
-	background-color: var(--pursuit-purple);
+.pursuit-create-row p {
+	max-width: 620px;
+	margin: 0;
+	font-size: 0.95rem;
+	line-height: 1.45;
+}
+
+.pursuit-theme #sendbutton {
+	min-height: 58px;
+	padding-inline: 28px;
+	white-space: nowrap;
 }
 
 .pursuit-theme footer {
-	padding: 34px clamp(16px, 3vw, 52px) 38px;
-	border-top: 1px solid var(--pursuit-black);
-	background: var(--pursuit-black);
-	color: var(--pursuit-white);
+	padding: 34px clamp(16px, 4vw, 56px) 38px;
+	border-top: 0;
+	background: #121212;
+	color: #ffffff;
 }
 
 .pursuit-theme footer .row {
+	align-items: baseline;
 	max-width: 1440px;
 	margin-inline: auto;
 }
 
 .pursuit-theme footer h5 {
+	margin: 0;
 	font-family: "Galano Grotesque", "Helvetica Neue", Helvetica, sans-serif;
-	font-size: clamp(1.4rem, 3vw, 2.4rem);
+	font-size: clamp(1.4rem, 3vw, 2.2rem);
 	font-weight: 700;
 	letter-spacing: -0.05em;
 }
 
+.pursuit-theme footer #aboutbox {
+	margin: 0;
+	line-height: 1.5;
+}
+
 .pursuit-theme footer a {
-	color: var(--pursuit-yellow);
+	color: #ecff00;
 }
 
-@media (min-width: 1200px) {
-	.pursuit-settings-panel {
-		gap: 10px;
-		padding: 10px;
-	}
-
-	.pursuit-settings-list {
-		display: grid;
-		grid-template-columns: auto 174px auto minmax(260px, 1fr) auto 198px;
-		gap: 8px !important;
-		align-items: center !important;
-	}
-
-	.pursuit-settings-list > li:has(> .hidden:only-child) {
-		display: none !important;
-	}
-
-	.pursuit-settings-list #expiration,
-	.pursuit-settings-list #formatter {
-		display: grid !important;
-		grid-template-columns: minmax(0, 1fr);
-		gap: 4px;
-		width: auto;
-		min-width: 0;
-		flex-basis: auto;
-	}
-
-	.pursuit-settings-list #expiration .form-label,
-	.pursuit-settings-list #formatter .form-label {
-		margin: 0 0 0 4px !important;
-		color: var(--pursuit-gray-strong);
-		font-family: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-		font-size: 0.65rem;
-		font-weight: 600;
-		letter-spacing: 0.08em;
-		line-height: 1;
-		text-transform: uppercase;
-	}
-
-	.pursuit-settings-list #newbutton {
-		min-height: 56px;
-		padding-inline: 22px;
-	}
-
-	.pursuit-settings-list #password {
-		width: 100%;
-		min-width: 0;
-	}
-
-	.pursuit-settings-list #password .input-group {
-		width: 100%;
-		min-width: 0;
-	}
-
-	.pursuit-settings-list #passwordinput {
-		width: 1%;
-		min-width: 0;
-	}
-
-	.pursuit-global-controls {
-		min-height: 58px;
-		padding-inline: 14px 6px;
-		border-left: 1px solid color-mix(in srgb, var(--pursuit-black) 22%, transparent);
-	}
-}
-
-.pursuit-settings-panel .form-control,
-.pursuit-settings-panel .form-select {
-	min-height: 48px;
-	border: 1px solid color-mix(in srgb, var(--pursuit-black) 24%, transparent);
-	border-radius: 14px;
-	background: var(--pursuit-control-surface);
-}
-
-.pursuit-settings-panel #password .input-group {
-	overflow: hidden;
-	border: 1px solid color-mix(in srgb, var(--pursuit-black) 24%, transparent);
-	border-radius: 999px;
-	background: var(--pursuit-control-surface);
-}
-
-.pursuit-settings-panel #passwordinput {
-	border: 0;
-	border-radius: 999px 0 0 999px;
-	background: transparent;
-}
-
-.pursuit-settings-panel #password .toggle-password {
-	width: 52px;
-	min-height: 48px;
-	border: 0;
-	border-left: 1px solid color-mix(in srgb, var(--pursuit-black) 24%, transparent);
-	border-radius: 0;
-}
-
-.pursuit-settings-panel #password .toggle-password:hover {
-	transform: none;
-}
-
-.pursuit-settings-panel #attach .nav-link {
-	padding: 12px 16px;
-	border: 1px solid color-mix(in srgb, var(--pursuit-purple) 42%, transparent);
-	border-radius: 999px;
-	background: color-mix(in srgb, var(--pursuit-purple) 9%, transparent);
-}
-
-@media (max-width: 991.98px) {
-	.pursuit-settings-panel {
-		align-items: stretch;
-		flex-direction: column;
-	}
-
-	.pursuit-settings-list,
-	.pursuit-global-controls {
-		width: 100%;
-	}
-
-	.pursuit-global-controls {
-		justify-content: flex-end;
-	}
-
+@media (max-width: 899.98px) {
 	.pursuit-intro {
 		grid-template-columns: 1fr;
 	}
-}
 
-@media (max-width: 767.98px) {
-	.pursuit-theme .navbar {
-		padding-block: 16px;
+	.pursuit-intro__note {
+		max-width: 620px;
 	}
 
 	.pursuit-settings-panel {
-		gap: 14px;
-		padding: 16px;
-		border-radius: 24px;
+		grid-template-columns: 1fr;
 	}
 
-	.pursuit-settings-list {
-		display: grid;
-		grid-template-columns: minmax(0, 1fr);
-		gap: 14px !important;
+	.pursuit-settings-heading {
+		position: static;
 	}
 
-	.pursuit-settings-list > .nav-item,
-	.pursuit-settings-list #expiration,
-	.pursuit-settings-list #formatter,
-	.pursuit-settings-list #password,
-	.pursuit-settings-list #attach {
-		width: 100%;
-		min-width: 0;
-		flex-basis: auto;
-	}
-
-	.pursuit-settings-list #expiration,
-	.pursuit-settings-list #formatter {
-		display: grid !important;
-		grid-template-columns: auto minmax(0, 1fr);
-		gap: 10px;
-		align-items: center;
-	}
-
-	.pursuit-settings-mobile-slot:not(:empty) {
-		display: block;
-		margin: -4px 0 18px;
-	}
-
-	.pursuit-settings-list #password .input-group {
-		width: 100%;
-	}
-
-	.pursuit-settings-list #passwordinput {
-		width: 1%;
-		min-width: 0;
-	}
-
-	.pursuit-settings-list #attach .nav-link {
-		padding-inline: 0;
+	.pursuit-settings-heading p:last-child {
+		max-width: 560px;
 	}
 
 	.pursuit-global-controls {
-		justify-content: flex-start;
-		padding-top: 2px;
+		grid-column: 1;
 	}
 }
 
-@media (max-width: 575.98px) {
+@media (max-width: 639.98px) {
 	.pursuit-theme .navbar {
-		padding-inline: 14px;
+		padding: 16px 14px;
+	}
+
+	.pursuit-theme .navbar-brand {
+		font-size: 1.28rem;
+	}
+
+	.pursuit-theme .navbar-brand img {
+		width: 40px;
+		height: 40px;
+	}
+
+	.pursuit-theme main {
+		padding-top: 8px;
+		padding-bottom: 48px;
 	}
 
 	.pursuit-intro {
-		padding: 26px 20px 30px;
-		border-radius: 24px;
+		padding: 28px 22px 30px;
+		border-radius: 28px;
 	}
 
 	.pursuit-intro::after {
-		top: -62px;
-		right: -62px;
+		top: -68px;
+		right: -68px;
 	}
 
 	.pursuit-intro h1 {
-		font-size: clamp(2.7rem, 16vw, 4.4rem);
+		font-size: clamp(3rem, 15vw, 4.4rem);
 	}
 
 	.pursuit-theme #message {
 		min-height: 44dvh;
+		border-radius: 18px;
+	}
+
+	.pursuit-settings-panel {
+		gap: 22px;
+		padding: 20px 16px;
+		border-radius: 22px;
+	}
+
+	.pursuit-settings-list {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.pursuit-settings-list .pursuit-option--actions {
+		grid-column: 1;
+	}
+
+	.pursuit-create-row {
+		align-items: stretch;
+		flex-direction: column;
+		padding: 20px;
+	}
+
+	.pursuit-theme #sendbutton {
+		width: 100%;
+	}
+
+	.pursuit-theme footer h5 {
+		margin-bottom: 12px;
 	}
 }
 

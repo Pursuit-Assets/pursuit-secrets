@@ -16,7 +16,7 @@ use PrivateBin\I18n;
 		<title><?php echo I18n::_($NAME); ?></title>
 		<link type="text/css" rel="stylesheet" href="css/bootstrap5/bootstrap<?php echo I18n::isRtl() ? '.rtl' : ''; ?>-5.3.8.css" />
 		<link type="text/css" rel="stylesheet" href="css/bootstrap5/privatebin.css?<?php echo rawurlencode($VERSION); ?>" />
-		<link type="text/css" rel="stylesheet" href="css/pursuit.css?<?php echo rawurlencode($VERSION); ?>-pursuit-7" />
+		<link type="text/css" rel="stylesheet" href="css/pursuit.css?<?php echo rawurlencode($VERSION); ?>-pursuit-9" />
 <?php
 if ($SYNTAXHIGHLIGHTING) :
 ?>
@@ -57,7 +57,7 @@ endif;
 		<?php $this->_scriptTag('js/purify-3.4.1.js', 'defer'); ?>
 		<?php $this->_scriptTag('js/legacy.js', 'defer'); ?>
 		<?php $this->_scriptTag('js/privatebin.js', 'defer'); ?>
-		<script defer type="text/javascript" data-cfasync="false" src="js/pursuit.js?<?php echo rawurlencode($VERSION); ?>-pursuit-7" crossorigin="anonymous"></script>
+		<script defer type="text/javascript" data-cfasync="false" src="js/pursuit.js?<?php echo rawurlencode($VERSION); ?>-pursuit-9" crossorigin="anonymous"></script>
 		<!-- icon -->
 		<link rel="icon" type="image/svg+xml" href="img/pursuit-mark.svg" />
 		<link rel="manifest" href="manifest.json?<?php echo rawurlencode($VERSION); ?>" />
@@ -157,6 +157,10 @@ endif;
 					<span>Pursuit <em>Secrets</em></span>
 				</a>
 				<div id="navbar" class="pursuit-settings-panel">
+					<div class="pursuit-settings-heading">
+						<p class="pursuit-settings-heading__eyebrow">Message options</p>
+						<p>Manage this message and how it is shared.</p>
+					</div>
 					<ul class="navbar-nav pursuit-settings-list me-auto gap-2 align-items-stretch">
 						<li id="loadingindicator" class="navbar-text hidden me-auto">
 							<svg width="16" height="16" fill="currentColor" aria-hidden="true"><use href="img/bootstrap-icons.svg#clock" /></svg>
@@ -167,9 +171,9 @@ endif;
 								<svg width="16" height="16" fill="currentColor" aria-hidden="true"><use href="img/bootstrap-icons.svg#repeat" /></svg> <?php echo I18n::_('Retry'), PHP_EOL; ?>
 							</button>
 						</li>
-						<li class="nav-item d-flex flex-lg-row flex-column gap-2">
+						<li class="nav-item pursuit-option--actions d-flex flex-lg-row flex-column gap-2">
 							<button id="newbutton" type="button" class="hidden btn btn-secondary flex-fill d-flex justify-content-center align-items-center gap-1">
-								<svg width="16" height="16" fill="currentColor" aria-hidden="true"><use href="img/bootstrap-icons.svg#file-earmark" /></svg> <?php echo I18n::_('New'), PHP_EOL; ?>
+								<svg width="16" height="16" fill="currentColor" aria-hidden="true"><use href="img/bootstrap-icons.svg#file-earmark" /></svg> <?php echo I18n::_('Start over'), PHP_EOL; ?>
 							</button>
 							<button id="clonebutton" type="button" class="hidden btn btn-secondary flex-fill d-flex justify-content-center align-items-center gap-1">
 								<svg width="16" height="16" fill="currentColor" aria-hidden="true"><use href="img/bootstrap-icons.svg#copy" /></svg> <?php echo I18n::_('Clone'), PHP_EOL; ?>
@@ -198,8 +202,8 @@ if ($QRCODE) :
 endif;
 ?>
 						</li>
-						<li id="expiration" class="nav-item d-flex hidden">
-							<label for="pasteExpiration" class="form-label my-auto me-1"><?php echo I18n::_('Expires'); ?>:</label>
+						<li id="expiration" class="nav-item pursuit-option pursuit-option--expiration d-flex hidden">
+							<label for="pasteExpiration" class="form-label my-auto me-1"><?php echo I18n::_('Expires in'); ?></label>
 							<select id="pasteExpiration" name="pasteExpiration" class="form-select">
 <?php
 foreach ($EXPIRE as $key => $value) :
@@ -214,7 +218,7 @@ endforeach;
 ?>
 							</select>
 						</li>
-						<li class="nav-item">
+						<li class="nav-item pursuit-option pursuit-option--burn">
 							<div id="burnafterreadingoption" class="navbar-text form-check hidden">
 								<input class="form-check-input" type="checkbox" id="burnafterreading" name="burnafterreading"<?php
 if ($BURNAFTERREADINGSELECTED) :
@@ -222,7 +226,7 @@ if ($BURNAFTERREADINGSELECTED) :
 endif;
 ?> />
 								<label class="form-check-label" for="burnafterreading">
-									<?php echo I18n::_('Burn after reading'), PHP_EOL; ?>
+									<?php echo I18n::_('Delete after it is opened'), PHP_EOL; ?>
 								</label>
 							</div>
 						</li>
@@ -245,10 +249,10 @@ if ($DISCUSSION) :
 endif;
 if ($PASSWORD) :
 ?>
-						<li class="nav-item">
+						<li class="nav-item pursuit-option pursuit-option--password">
 							<div id="password" class="navbar-form hidden">
 								<div class="input-group">
-									<input type="password" id="passwordinput" placeholder="<?php echo I18n::_('Password (recommended)'); ?>" aria-label="<?php echo I18n::_('Password (recommended)'); ?>" class="form-control input-password" size="23" />
+									<input type="password" id="passwordinput" placeholder="<?php echo I18n::_('Add a password (optional)'); ?>" aria-label="<?php echo I18n::_('Add a password (optional)'); ?>" class="form-control input-password" size="23" />
 									<button class="btn btn-outline-secondary toggle-password" type="button" title="<?php echo I18n::_('Show password'); ?>" aria-label="<?php echo I18n::_('Show password'); ?>">
 										<svg width="16" height="16" fill="currentColor" aria-hidden="true"><use href="img/bootstrap-icons.svg#eye" /></svg>
 									</button>
@@ -259,7 +263,7 @@ if ($PASSWORD) :
 endif;
 if ($FILEUPLOAD) :
 ?>
-						<li id="attach" class="nav-item hidden dropdown">
+						<li id="attach" class="nav-item pursuit-option pursuit-option--attach hidden dropdown">
 							<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false"><?php echo I18n::_('Attach a file'); ?></a>
 							<ul class="dropdown-menu px-2">
 								<li id="filewrap">
@@ -279,8 +283,8 @@ if ($FILEUPLOAD) :
 <?php
 endif;
 ?>
-						<li id="formatter" class="nav-item d-flex hidden">
-							<label for="pasteFormatter" class="form-label my-auto me-1"><?php echo I18n::_('Format'); ?>:</label>
+						<li id="formatter" class="nav-item pursuit-option pursuit-option--formatter d-flex hidden">
+							<label for="pasteFormatter" class="form-label my-auto me-1"><?php echo I18n::_('Format'); ?></label>
 							<select id="pasteFormatter" name="pasteFormatter" class="form-select">
 <?php
     foreach ($FORMATTER as $key => $value) :
@@ -353,10 +357,10 @@ endif;
 			<section class="container-fluid mt-2">
 				<header class="pursuit-intro">
 					<div>
-						<p class="pursuit-intro__eyebrow">Zero-knowledge sharing</p>
-						<h1>Share the secret.<br />Keep the key.</h1>
+						<p class="pursuit-intro__eyebrow">Private sharing</p>
+						<h1>Share a private message.</h1>
 					</div>
-					<p class="pursuit-intro__note">Your message is encrypted in this browser before it leaves your device. The decryption key stays in the link—not on this server.</p>
+					<p class="pursuit-intro__note">Write your message, choose how long it should stay available, then share the link.</p>
 				</header>
 <?php
 if (!empty($NOTICE)) :
@@ -468,11 +472,6 @@ endif;
 				<ul id="editorTabs" class="nav nav-tabs hidden">
 					<li role="presentation" class="nav-item me-1"><a class="nav-link active" role="tab" id="messageedit" href="#"><?php echo I18n::_('Editor'); ?></a></li>
 					<li role="presentation" class="nav-item me-1"><a class="nav-link" role="tab" id="messagepreview" href="#"><?php echo I18n::_('Preview'); ?></a></li>
-					<li role="presentation" class="nav-item ms-auto">
-						<button id="sendbutton" type="button" tabindex="2" class="hidden btn btn-primary d-flex justify-content-center align-items-center gap-1">
-							<svg width="16" height="16" fill="currentColor" aria-hidden="true"><use href="img/bootstrap-icons.svg#cloud-upload" /></svg> <?php echo I18n::_('Create'), PHP_EOL; ?>
-						</button>
-					</li>
 				</ul>
 			</section>
 			<section class="container-fluid">
@@ -491,13 +490,18 @@ endif;
 						<pre id="prettyprint" class="card-body col-md-12 prettyprint linenums:1"></pre>
 					</div>
 					<div id="plaintext" class="col-md-12 hidden"></div>
-					<p class="col-md-12"><textarea id="message" name="message" cols="80" rows="25" aria-label="<?php echo I18n::_('Document text'); ?>" tabindex="1" class="form-control hidden"></textarea></p>
-					<div id="pursuit-settings-mobile-slot" class="pursuit-settings-mobile-slot"></div>
-					<p class="col-md-12 form-check form-switch">
-						<input id="messagetab" type="checkbox" tabindex="3" class="form-check-input" checked="checked" />
-						<label for="messagetab" class="form-check-label">
-							<?php echo I18n::_('Tabulator key serves as character (Hit <kbd>Ctrl</kbd>+<kbd>m</kbd> or <kbd>Esc</kbd> to toggle)'), PHP_EOL; ?>
-						</label>
+					<p class="col-md-12 pursuit-editor"><textarea id="message" name="message" cols="80" rows="25" aria-label="<?php echo I18n::_('Message'); ?>" placeholder="Write or paste your message here…" tabindex="1" class="form-control hidden"></textarea></p>
+					<div class="pursuit-compose-controls">
+						<div id="pursuit-settings-slot" class="pursuit-settings-slot"></div>
+						<div class="pursuit-create-row">
+							<p>When you create the link, copy it and send it to the person who needs the message.</p>
+							<button id="sendbutton" type="button" tabindex="2" class="hidden btn btn-primary d-flex justify-content-center align-items-center gap-1">
+								<svg width="16" height="16" fill="currentColor" aria-hidden="true"><use href="img/bootstrap-icons.svg#cloud-upload" /></svg> Create link
+							</button>
+						</div>
+					</div>
+					<p class="visually-hidden" aria-hidden="true">
+						<input id="messagetab" type="checkbox" checked="checked" tabindex="-1" />
 					</p>
 				</article>
 			</section>
@@ -517,10 +521,9 @@ endif;
 		</main>
 		<footer class="container-fluid mt-auto">
 			<div class="row">
-				<h5 class="col-md-5 col-xs-8"><?php echo I18n::_($NAME); ?> <small>— Built for Pursuit</small></h5>
-				<p class="col-md-1 col-xs-4 text-center"><?php echo $VERSION; ?></p>
-				<p id="aboutbox" class="col-md-6 col-xs-12">
-					Encrypted and decrypted in your browser using 256-bit AES-GCM. Powered by the open-source <a href="https://privatebin.info/" rel="noopener noreferrer">PrivateBin</a> project.
+				<h5 class="col-md-5 col-xs-12"><?php echo I18n::_($NAME); ?></h5>
+				<p id="aboutbox" class="col-md-7 col-xs-12">
+					Pursuit cannot read the messages you share here. Powered by the open-source <a href="https://privatebin.info/" rel="noopener noreferrer">PrivateBin</a> project.
 				</p>
 			</div>
 		</footer>
