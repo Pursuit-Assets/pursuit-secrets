@@ -16,7 +16,7 @@ use PrivateBin\I18n;
 		<title><?php echo I18n::_($NAME); ?></title>
 		<link type="text/css" rel="stylesheet" href="css/bootstrap5/bootstrap<?php echo I18n::isRtl() ? '.rtl' : ''; ?>-5.3.8.css" />
 		<link type="text/css" rel="stylesheet" href="css/bootstrap5/privatebin.css?<?php echo rawurlencode($VERSION); ?>" />
-		<link type="text/css" rel="stylesheet" href="css/pursuit.css?<?php echo rawurlencode($VERSION); ?>-pursuit-5" />
+		<link type="text/css" rel="stylesheet" href="css/pursuit.css?<?php echo rawurlencode($VERSION); ?>-pursuit-7" />
 <?php
 if ($SYNTAXHIGHLIGHTING) :
 ?>
@@ -42,7 +42,6 @@ endif;
 		<?php $this->_scriptTag('js/zlib.js', 'defer'); ?>
 		<?php $this->_scriptTag('js/base-x-5.0.1.js', 'defer'); ?>
 		<?php $this->_scriptTag('js/bootstrap-5.3.8.js', 'defer'); ?>
-		<?php $this->_scriptTag('js/dark-mode-switch.js', 'defer'); ?>
 <?php
 if ($SYNTAXHIGHLIGHTING) :
 ?>
@@ -58,7 +57,7 @@ endif;
 		<?php $this->_scriptTag('js/purify-3.4.1.js', 'defer'); ?>
 		<?php $this->_scriptTag('js/legacy.js', 'defer'); ?>
 		<?php $this->_scriptTag('js/privatebin.js', 'defer'); ?>
-		<script defer type="text/javascript" data-cfasync="false" src="js/pursuit.js?<?php echo rawurlencode($VERSION); ?>-pursuit-5" crossorigin="anonymous"></script>
+		<script defer type="text/javascript" data-cfasync="false" src="js/pursuit.js?<?php echo rawurlencode($VERSION); ?>-pursuit-7" crossorigin="anonymous"></script>
 		<!-- icon -->
 		<link rel="icon" type="image/svg+xml" href="img/pursuit-mark.svg" />
 		<link rel="manifest" href="manifest.json?<?php echo rawurlencode($VERSION); ?>" />
@@ -298,12 +297,6 @@ endif;
 						</li>
 					</ul>
 					<ul class="navbar-nav pursuit-global-controls gap-2">
-						<li class="nav-item">
-							<div class="form-check form-switch navbar-text">
-								<input id="bd-theme" type="checkbox" class="form-check-input" />
-								<label for="bd-theme" class="form-check-label"><?php echo I18n::_('Dark Mode'); ?></label>
-							</div>
-						</li>
 <?php
 if (!empty($LANGUAGESELECTION)) :
 ?>

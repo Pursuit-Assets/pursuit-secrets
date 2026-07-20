@@ -145,6 +145,10 @@ body.pursuit-theme::before {
 	align-items: center;
 }
 
+.pursuit-global-controls:not(:has(> li)) {
+	display: none;
+}
+
 .pursuit-settings-list > .nav-item {
 	min-width: 0;
 }
