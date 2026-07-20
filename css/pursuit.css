@@ -513,6 +513,10 @@ body.pursuit-theme::before {
 	white-space: nowrap;
 }
 
+.pursuit-theme #sendbutton:hover {
+	transform: none;
+}
+
 .pursuit-theme footer {
 	padding: 34px clamp(16px, 4vw, 56px) 38px;
 	border-top: 0;

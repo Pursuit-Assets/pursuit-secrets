@@ -16,7 +16,7 @@ use PrivateBin\I18n;
 		<title><?php echo I18n::_($NAME); ?></title>
 		<link type="text/css" rel="stylesheet" href="css/bootstrap5/bootstrap<?php echo I18n::isRtl() ? '.rtl' : ''; ?>-5.3.8.css" />
 		<link type="text/css" rel="stylesheet" href="css/bootstrap5/privatebin.css?<?php echo rawurlencode($VERSION); ?>" />
-		<link type="text/css" rel="stylesheet" href="css/pursuit.css?<?php echo rawurlencode($VERSION); ?>-pursuit-12" />
+		<link type="text/css" rel="stylesheet" href="css/pursuit.css?<?php echo rawurlencode($VERSION); ?>-pursuit-13" />
 <?php
 if ($SYNTAXHIGHLIGHTING) :
 ?>
@@ -356,7 +356,7 @@ endif;
 						<p class="pursuit-intro__eyebrow">Private sharing</p>
 						<h1>Share a secret</h1>
 					</div>
-					<p class="pursuit-intro__note">Write your message, choose how long it should stay available, then share the link.</p>
+					<p class="pursuit-intro__note">Don't share secrets, credit cards, or sensitive data in Slack, share a disappearing message instead</p>
 <?php
 if (!empty($NOTICE)) :
 ?>
@@ -490,9 +490,13 @@ endif;
 					<div class="pursuit-compose-controls">
 						<div id="pursuit-settings-slot" class="pursuit-settings-slot"></div>
 						<div class="pursuit-create-row">
-							<p>When you create the link, copy it and send it to the person who needs the message.</p>
+							<p>Create a secret link and send it privately.</p>
 							<button id="sendbutton" type="button" tabindex="2" class="hidden btn btn-primary d-flex justify-content-center align-items-center gap-1">
-								<svg width="16" height="16" fill="currentColor" aria-hidden="true"><use href="img/bootstrap-icons.svg#cloud-upload" /></svg> Create link
+								<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+									<path d="M4.715 6.542 3.343 7.914a3 3 0 0 0 4.243 4.243l1.828-1.828-.707-.707-1.828 1.829A2 2 0 1 1 4.05 8.622L5.422 7.25z" />
+									<path d="m6.542 4.715 1.372-1.372a3 3 0 0 1 4.243 4.243l-1.828 1.828-.707-.707 1.829-1.828A2 2 0 0 0 8.622 4.05L7.25 5.422z" />
+									<path d="M5.353 9.354a.5.5 0 0 1 0-.708l3.293-3.293a.5.5 0 0 1 .708.708L6.061 9.354a.5.5 0 0 1-.708 0" />
+								</svg> Create link
 							</button>
 						</div>
 					</div>
