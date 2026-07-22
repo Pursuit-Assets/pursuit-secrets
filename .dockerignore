@@ -5,6 +5,12 @@
 !css/pursuit.css
 !js/pursuit.js
 !img/pursuit-mark.svg
+!img/pursuit-profile-purple.png
+!fonts/
+!fonts/proxima-nova-regular.woff2
+!fonts/proxima-nova-bold.woff
+!fonts/galano-grotesque-regular.otf
+!fonts/galano-grotesque-semibold.otf
 !deploy/nginx/hsts.conf
 !deploy/nginx/uploads.conf
 !deploy/php/uploads.ini

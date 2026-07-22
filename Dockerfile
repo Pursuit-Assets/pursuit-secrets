@@ -10,6 +10,8 @@ COPY --chown=65534:82 tpl/bootstrap5.php /srv/tpl/bootstrap5.php
 COPY --chown=65534:82 css/pursuit.css /var/www/css/pursuit.css
 COPY --chown=65534:82 js/pursuit.js /var/www/js/pursuit.js
 COPY --chown=65534:82 img/pursuit-mark.svg /var/www/img/pursuit-mark.svg
+COPY --chown=65534:82 img/pursuit-profile-purple.png /var/www/img/pursuit-profile-purple.png
+COPY --chown=65534:82 fonts /var/www/fonts
 COPY --chown=65534:82 deploy/nginx/hsts.conf /etc/nginx/location.d/hsts.conf
 COPY deploy/nginx/uploads.conf /etc/nginx/server.d/uploads.conf
 COPY deploy/php/uploads.ini /etc/php/conf.d/99-uploads.ini

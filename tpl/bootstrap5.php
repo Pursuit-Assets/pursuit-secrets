@@ -16,7 +16,7 @@ use PrivateBin\I18n;
 		<title><?php echo I18n::_($NAME); ?></title>
 		<link type="text/css" rel="stylesheet" href="css/bootstrap5/bootstrap<?php echo I18n::isRtl() ? '.rtl' : ''; ?>-5.3.8.css" />
 		<link type="text/css" rel="stylesheet" href="css/bootstrap5/privatebin.css?<?php echo rawurlencode($VERSION); ?>" />
-		<link type="text/css" rel="stylesheet" href="css/pursuit.css?<?php echo rawurlencode($VERSION); ?>-pursuit-13" />
+		<link type="text/css" rel="stylesheet" href="css/pursuit.css?<?php echo rawurlencode($VERSION); ?>-pursuit-16" />
 <?php
 if ($SYNTAXHIGHLIGHTING) :
 ?>
@@ -57,11 +57,11 @@ endif;
 		<?php $this->_scriptTag('js/purify-3.4.1.js', 'defer'); ?>
 		<?php $this->_scriptTag('js/legacy.js', 'defer'); ?>
 		<?php $this->_scriptTag('js/privatebin.js', 'defer'); ?>
-		<script defer type="text/javascript" data-cfasync="false" src="js/pursuit.js?<?php echo rawurlencode($VERSION); ?>-pursuit-14" crossorigin="anonymous"></script>
+		<script defer type="text/javascript" data-cfasync="false" src="js/pursuit.js?<?php echo rawurlencode($VERSION); ?>-pursuit-15" crossorigin="anonymous"></script>
 		<!-- icon -->
 		<link rel="icon" type="image/svg+xml" href="img/pursuit-mark.svg?<?php echo rawurlencode($VERSION); ?>-pursuit-11" />
 		<link rel="manifest" href="manifest.json?<?php echo rawurlencode($VERSION); ?>" />
-		<meta name="theme-color" content="#4343ea" />
+		<meta name="theme-color" content="#4242EA" />
 		<!-- Twitter/social media cards -->
 		<meta name="twitter:card" content="summary" />
 		<meta name="twitter:title" content="<?php echo I18n::_('Encrypted note on %s', I18n::_($NAME)) ?>" />
@@ -153,7 +153,7 @@ endif;
 		<nav class="navbar navbar-expand-lg bg-body-tertiary text-nowrap mb-3">
 			<div class="container-fluid">
 				<a class="reloadlink navbar-brand" href="">
-					<img alt="" src="img/pursuit-mark.svg?<?php echo rawurlencode($VERSION); ?>-pursuit-11" width="48" height="48" />
+					<img alt="" src="img/pursuit-profile-purple.png?<?php echo rawurlencode($VERSION); ?>-pursuit-15" width="48" height="48" />
 					<span>Pursuit <em>Secrets</em></span>
 				</a>
 				<div id="navbar" class="pursuit-settings-panel">
@@ -465,13 +465,13 @@ if (!empty($URLSHORTENER)) :
 endif;
 ?>
 				</div>
-				<ul id="editorTabs" class="nav nav-tabs hidden">
-					<li role="presentation" class="nav-item me-1"><a class="nav-link active" role="tab" id="messageedit" href="#"><?php echo I18n::_('Editor'); ?></a></li>
-					<li role="presentation" class="nav-item me-1"><a class="nav-link" role="tab" id="messagepreview" href="#"><?php echo I18n::_('Preview'); ?></a></li>
-				</ul>
 			</section>
-			<section class="container-fluid">
-				<article>
+			<section class="container-fluid pursuit-workspace">
+				<article class="pursuit-workspace__card">
+					<ul id="editorTabs" class="nav nav-tabs hidden">
+						<li role="presentation" class="nav-item me-1"><a class="nav-link active" role="tab" id="messageedit" href="#"><?php echo I18n::_('Editor'); ?></a></li>
+						<li role="presentation" class="nav-item me-1"><a class="nav-link" role="tab" id="messagepreview" href="#"><?php echo I18n::_('Preview'); ?></a></li>
+					</ul>
 					<div id="placeholder" class="col-md-12 hidden"><?php echo I18n::_('+++ no document text +++'); ?></div>
 					<div id="attachmentPreview" class="col-md-12 text-center hidden"></div>
 					<h6 id="copyShortcutHint" class="col-md-12 nav justify-content-between align-items-center mb-2 hidden">

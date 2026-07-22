@@ -1,132 +1,201 @@
 /**
- * Pursuit theme for PrivateBin 2.0.5.
- * Brand direction adapted from the public pursuit.org design system.
+ * Pursuit product theme for PrivateBin 2.0.5.
+ * Tokens and interaction patterns follow the Pursuit Design System.
  */
+
+@font-face {
+	font-family: "Proxima Nova";
+	src: url("../fonts/proxima-nova-regular.woff2") format("woff2");
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Proxima Nova";
+	src: url("../fonts/proxima-nova-bold.woff") format("woff");
+	font-style: normal;
+	font-weight: 600 800;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Galano Grotesque";
+	src: url("../fonts/galano-grotesque-regular.otf") format("opentype");
+	font-style: normal;
+	font-weight: 400 500;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Galano Grotesque";
+	src: url("../fonts/galano-grotesque-semibold.otf") format("opentype");
+	font-style: normal;
+	font-weight: 600 700;
+	font-display: swap;
+}
 
 :root,
 [data-bs-theme="light"] {
-	--pursuit-black: #121212;
-	--pursuit-white: #ffffff;
-	--pursuit-gray: #f2f2f2;
-	--pursuit-gray-strong: #a6a6a6;
-	--pursuit-purple: #4343ea;
-	--pursuit-purple-muted: #7474ef;
+	--pursuit-purple: #4242ea;
+	--pursuit-purple-hover: #3535c7;
+	--pursuit-purple-deep: #3232ba;
+	--pursuit-carbon: #1e1e1e;
+	--pursuit-yellow: #edff00;
 	--pursuit-pink: #ffd3c2;
-	--pursuit-yellow: #ecff00;
-	--pursuit-control-surface: #ffffff;
-	--pursuit-control-border: rgb(18 18 18 / 24%);
-	--bs-body-bg: var(--pursuit-white);
-	--bs-body-color: var(--pursuit-black);
+	--pursuit-canvas: #efefef;
+	--pursuit-surface: #ffffff;
+	--pursuit-surface-alt: #e3e3e3;
+	--pursuit-divider: #c8c8c8;
+	--pursuit-ink: #1e1e1e;
+	--pursuit-muted: #666666;
+	--pursuit-muted-soft: #aaaaaa;
+	--pursuit-on-dark: #e3e3e3;
+	--pursuit-focus: 0 0 0 3px rgb(66 66 234 / 18%), 0 0 8px rgb(66 66 234 / 25%);
+	--pursuit-shadow-sm: 0 2px 4px rgb(0 0 0 / 5%);
+	--pursuit-shadow-card: 0 8px 20px rgb(0 0 0 / 12%);
+	--pursuit-ease: cubic-bezier(0.16, 1, 0.3, 1);
+	--pursuit-control: #ffffff;
+	--pursuit-control-alt: #f5f5f5;
+	--pursuit-success: #1f8a5b;
+	--pursuit-danger: #b4232a;
+	--bs-body-bg: var(--pursuit-canvas);
+	--bs-body-color: var(--pursuit-ink);
 	--bs-primary: var(--pursuit-purple);
-	--bs-primary-rgb: 67, 67, 234;
-	--bs-secondary: var(--pursuit-black);
-	--bs-secondary-rgb: 18, 18, 18;
-	--bs-success: var(--pursuit-purple);
-	--bs-success-rgb: 67, 67, 234;
-	--bs-info: var(--pursuit-purple-muted);
-	--bs-info-rgb: 116, 116, 239;
-	--bs-border-color: var(--pursuit-black);
-	--bs-border-radius: 1rem;
-	--bs-border-radius-sm: 0.5rem;
-	--bs-border-radius-lg: 2rem;
+	--bs-primary-rgb: 66, 66, 234;
+	--bs-secondary: var(--pursuit-carbon);
+	--bs-secondary-rgb: 30, 30, 30;
+	--bs-success: var(--pursuit-success);
+	--bs-success-rgb: 31, 138, 91;
+	--bs-info: var(--pursuit-purple);
+	--bs-info-rgb: 66, 66, 234;
+	--bs-border-color: var(--pursuit-divider);
+	--bs-border-radius: 0.5rem;
+	--bs-border-radius-sm: 0.375rem;
+	--bs-border-radius-lg: 1.125rem;
 }
 
 [data-bs-theme="dark"] {
-	--pursuit-black: #f4f4f4;
-	--pursuit-white: #111111;
-	--pursuit-gray: #1b1b1b;
-	--pursuit-gray-strong: #858585;
-	--pursuit-purple: #7474ef;
-	--pursuit-purple-muted: #9292f4;
-	--pursuit-pink: #7a5147;
-	--pursuit-yellow: #d9eb00;
-	--pursuit-control-surface: #242424;
-	--pursuit-control-border: rgb(244 244 244 / 24%);
-	--bs-body-bg: var(--pursuit-gray);
-	--bs-body-color: var(--pursuit-black);
+	--pursuit-purple: #6666f2;
+	--pursuit-purple-hover: #7777f4;
+	--pursuit-purple-deep: #9999f0;
+	--pursuit-carbon: #101010;
+	--pursuit-yellow: #edff00;
+	--pursuit-pink: #6e463b;
+	--pursuit-canvas: #121212;
+	--pursuit-surface: #1e1e1e;
+	--pursuit-surface-alt: #292929;
+	--pursuit-divider: #505050;
+	--pursuit-ink: #f4f4f4;
+	--pursuit-muted: #c8c8c8;
+	--pursuit-muted-soft: #919191;
+	--pursuit-on-dark: #e3e3e3;
+	--pursuit-focus: 0 0 0 3px rgb(102 102 242 / 22%), 0 0 8px rgb(102 102 242 / 32%);
+	--pursuit-shadow-sm: 0 2px 4px rgb(0 0 0 / 22%);
+	--pursuit-shadow-card: 0 8px 20px rgb(0 0 0 / 30%);
+	--pursuit-control: #242424;
+	--pursuit-control-alt: #303030;
+	--pursuit-success: #5ac495;
+	--pursuit-danger: #ff8c91;
+	--bs-body-bg: var(--pursuit-canvas);
+	--bs-body-color: var(--pursuit-ink);
 	--bs-primary: var(--pursuit-purple);
-	--bs-primary-rgb: 116, 116, 239;
-	--bs-secondary: #323232;
-	--bs-secondary-rgb: 50, 50, 50;
-	--bs-success: var(--pursuit-purple);
-	--bs-success-rgb: 116, 116, 239;
-	--bs-info: var(--pursuit-purple-muted);
-	--bs-info-rgb: 146, 146, 244;
-	--bs-border-color: var(--pursuit-black);
+	--bs-primary-rgb: 102, 102, 242;
+	--bs-secondary: #363636;
+	--bs-secondary-rgb: 54, 54, 54;
+	--bs-success: var(--pursuit-success);
+	--bs-success-rgb: 90, 196, 149;
+	--bs-info: var(--pursuit-purple);
+	--bs-info-rgb: 102, 102, 242;
+	--bs-border-color: var(--pursuit-divider);
 }
 
 html {
-	background: var(--pursuit-white);
+	background: var(--pursuit-canvas);
 }
 
 body.pursuit-theme {
 	min-height: 100dvh;
-	background: var(--pursuit-white);
-	font-family: "Graphik", "Helvetica Neue", Helvetica, sans-serif;
-	letter-spacing: -0.01em;
+	background: var(--pursuit-canvas);
+	color: var(--pursuit-ink);
+	font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+	font-size: 16px;
+	letter-spacing: 0;
+	-webkit-font-smoothing: antialiased;
 }
 
 body.pursuit-theme::before {
 	position: fixed;
 	inset: 0 0 auto;
 	z-index: 1100;
-	height: 5px;
-	background: linear-gradient(90deg, var(--pursuit-purple) 0 72%, var(--pursuit-yellow) 72%);
+	height: 7px;
+	background: linear-gradient(90deg, #4242ea 0 84%, #edff00 84%);
 	content: "";
 }
 
 .pursuit-theme a {
 	color: var(--pursuit-purple);
+	text-decoration-thickness: 1px;
 	text-underline-offset: 0.2em;
 }
 
+.pursuit-theme a:hover {
+	color: var(--pursuit-purple-deep);
+}
+
 .pursuit-theme .navbar {
-	margin: 5px 0 0 !important;
-	padding: 22px clamp(16px, 4vw, 56px);
-	border-bottom: 0;
-	background: var(--pursuit-white) !important;
+	margin: 7px 0 0 !important;
+	padding: 24px clamp(20px, 4vw, 48px) 18px;
+	border: 0;
+	background: var(--pursuit-canvas) !important;
 }
 
 .pursuit-theme .navbar .container-fluid {
 	display: flex;
 	width: 100%;
-	max-width: 1440px;
+	max-width: 1200px;
 	padding: 0;
+	margin-inline: auto;
 }
 
 .pursuit-theme .navbar-brand {
 	display: inline-flex;
 	align-items: center;
-	gap: 12px;
-	margin-right: 0;
-	color: var(--pursuit-black);
-	font-family: "Galano Grotesque", "Helvetica Neue", Helvetica, sans-serif;
-	font-size: 1.45rem;
+	gap: 13px;
+	margin: 0;
+	color: var(--pursuit-ink);
+	font-family: "Proxima Nova", sans-serif;
+	font-size: 1.4rem;
 	font-weight: 700;
-	letter-spacing: -0.06em;
+	letter-spacing: -0.025em;
+}
+
+.pursuit-theme .navbar-brand:hover {
+	color: var(--pursuit-ink);
 }
 
 .pursuit-theme .navbar-brand img {
 	width: 48px;
 	height: 48px;
-	border-radius: 12px;
+	border-radius: 8px;
+	box-shadow: var(--pursuit-shadow-sm);
 }
 
 .pursuit-theme .navbar-brand em {
 	color: var(--pursuit-purple);
 	font-style: normal;
-	font-weight: 500;
+	font-weight: 400;
 }
 
-/* Keep the header brand-only while the script relocates the settings. */
+/* The settings are relocated below the editor by pursuit.js. */
 .pursuit-theme .navbar .pursuit-settings-panel {
 	display: none;
 }
 
 .pursuit-theme main {
-	width: min(100%, 1160px);
+	width: min(100%, 1200px);
 	margin-inline: auto;
-	padding: clamp(12px, 2vw, 28px) clamp(14px, 4vw, 52px) 72px;
+	padding: 0 clamp(20px, 4vw, 48px) 72px;
 }
 
 .pursuit-theme main > section.container-fluid {
@@ -138,80 +207,75 @@ body.pursuit-theme::before {
 	display: grid;
 	grid-template-areas:
 		"title note"
-		"notice note";
-	grid-template-columns: minmax(0, 1.55fr) minmax(240px, 0.45fr);
-	column-gap: clamp(24px, 5vw, 72px);
-	row-gap: 22px;
-	align-items: end;
+		"title notice";
+	grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
+	column-gap: clamp(36px, 6vw, 84px);
+	row-gap: 18px;
+	align-items: start;
 	overflow: hidden;
-	margin: 0 0 clamp(22px, 3vw, 36px);
-	padding: clamp(28px, 5vw, 68px);
-	border-radius: clamp(28px, 4vw, 48px);
-	background: var(--pursuit-purple);
-	color: #ffffff;
+	margin: 0 0 28px;
+	padding: clamp(36px, 5vw, 60px);
+	border: 1px solid var(--pursuit-divider);
+	border-radius: 18px;
+	background: var(--pursuit-surface);
+	box-shadow: var(--pursuit-shadow-sm);
+	color: var(--pursuit-ink);
 }
 
 .pursuit-intro__title {
 	grid-area: title;
-}
-
-.pursuit-intro::after {
-	position: absolute;
-	top: -54px;
-	right: -54px;
-	width: 150px;
-	height: 150px;
-	border: 2px solid #121212;
-	border-radius: 50%;
-	background: var(--pursuit-yellow);
-	content: "";
+	align-self: center;
 }
 
 .pursuit-intro__eyebrow {
-	margin: 0 0 16px;
-	font-family: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+	margin: 0 0 14px;
+	color: var(--pursuit-yellow);
 	font-size: 0.75rem;
-	font-weight: 600;
-	letter-spacing: 0.12em;
+	font-weight: 700;
+	letter-spacing: 0.1em;
 	text-transform: uppercase;
 }
 
 .pursuit-intro h1 {
-	max-width: 720px;
+	max-width: 690px;
 	margin: 0;
-	font-family: "Galano Grotesque", "Helvetica Neue", Helvetica, sans-serif;
-	font-size: clamp(3rem, 7vw, 6.2rem);
-	font-weight: 700;
-	letter-spacing: -0.075em;
-	line-height: 0.9;
+	color: var(--pursuit-ink);
+	font-family: "Galano Grotesque", "Proxima Nova", sans-serif;
+	font-size: clamp(3.2rem, 6.8vw, 5.35rem);
+	font-weight: 600;
+	letter-spacing: -0.055em;
+	line-height: 0.96;
 }
 
 .pursuit-intro__note {
-	position: relative;
-	z-index: 1;
 	grid-area: note;
-	max-width: 360px;
+	max-width: 42ch;
 	margin: 0;
-	font-size: clamp(1rem, 1.5vw, 1.2rem);
-	line-height: 1.48;
+	color: var(--pursuit-ink);
+	font-size: clamp(1.1rem, 1.8vw, 1.38rem);
+	font-weight: 400;
+	line-height: 1.38;
 }
 
 .pursuit-intro__notice {
-	position: relative;
-	z-index: 1;
 	display: flex;
 	grid-area: notice;
-	align-items: center;
-	gap: 9px;
-	max-width: 620px;
+	align-items: flex-start;
+	gap: 10px;
+	max-width: 48ch;
 	margin: 0;
-	color: #ffffff;
-	font-size: clamp(0.92rem, 1.25vw, 1rem);
+	padding: 14px 16px;
+	border-radius: 8px;
+	background: var(--pursuit-surface-alt);
+	color: var(--pursuit-ink);
+	font-size: 0.95rem;
 	line-height: 1.4;
 }
 
 .pursuit-intro__notice svg {
 	flex: 0 0 auto;
+	margin-top: 2px;
+	color: var(--pursuit-yellow);
 }
 
 .pursuit-theme .form-control,
@@ -221,59 +285,98 @@ body.pursuit-theme::before {
 .pursuit-theme .modal-content,
 .pursuit-theme .card,
 .pursuit-theme .alert {
-	border: 1px solid var(--pursuit-gray-strong);
-	border-radius: 16px;
+	border: 1px solid var(--pursuit-divider);
+	border-radius: 8px;
 }
 
 .pursuit-theme .form-control,
 .pursuit-theme .form-select {
-	background-color: var(--pursuit-white);
-	color: var(--pursuit-black);
+	background-color: var(--pursuit-control);
+	color: var(--pursuit-ink);
+}
+
+.pursuit-theme .form-control::placeholder {
+	color: var(--pursuit-muted-soft);
+	opacity: 1;
 }
 
 .pursuit-theme .form-control:focus,
 .pursuit-theme .form-select:focus,
-.pursuit-theme .form-check-input:focus {
+.pursuit-theme .form-check-input:focus,
+.pursuit-theme .btn:focus-visible,
+.pursuit-theme .nav-link:focus-visible,
+.pursuit-theme a:focus-visible {
 	border-color: var(--pursuit-purple);
-	box-shadow: 0 0 0 4px rgb(67 67 234 / 22%);
+	box-shadow: var(--pursuit-focus);
+	outline: none;
 }
 
 .pursuit-theme .alert {
-	padding: 16px 18px;
+	display: flex;
+	align-items: flex-start;
+	gap: 10px;
+	margin-bottom: 18px;
+	padding: 14px 16px;
+	background: var(--pursuit-surface);
+	color: var(--pursuit-ink);
+	box-shadow: var(--pursuit-shadow-sm);
 }
 
 .pursuit-theme .alert-info {
-	background: color-mix(in srgb, var(--pursuit-purple) 12%, var(--pursuit-white));
-	color: var(--pursuit-black);
+	border-left: 4px solid var(--pursuit-purple);
 }
 
 .pursuit-theme .alert-success {
+	border-color: color-mix(in srgb, var(--pursuit-yellow) 65%, var(--pursuit-divider));
 	background: var(--pursuit-yellow);
-	color: #121212;
+	color: #1e1e1e;
+}
+
+.pursuit-theme .alert-danger,
+.pursuit-theme .alert-warning {
+	border-color: color-mix(in srgb, var(--pursuit-danger) 55%, var(--pursuit-divider));
+	background: color-mix(in srgb, var(--pursuit-pink) 55%, var(--pursuit-surface));
+	color: var(--pursuit-ink);
+}
+
+.pursuit-workspace {
+	margin-top: 0;
+}
+
+.pursuit-workspace__card {
+	padding: clamp(18px, 3vw, 30px);
+	border: 1px solid var(--pursuit-divider);
+	border-radius: 18px;
+	background: var(--pursuit-surface);
+	box-shadow: var(--pursuit-shadow-sm);
 }
 
 .pursuit-theme .nav-tabs {
 	gap: 8px;
-	margin: 26px 0 12px;
+	margin: 0 0 14px;
 	border: 0;
 }
 
 .pursuit-theme .nav-tabs .nav-link {
-	padding: 10px 18px;
-	border: 1px solid transparent;
-	border-radius: 999px;
-	color: var(--pursuit-black);
-	font-weight: 700;
+	padding: 8px 15px;
+	border: 1px solid var(--pursuit-divider);
+	border-radius: 100px;
+	background: transparent;
+	color: var(--pursuit-ink);
+	font-size: 0.9rem;
+	font-weight: 600;
+	transition: color 160ms ease, border-color 160ms ease, background-color 160ms ease;
 }
 
 .pursuit-theme .nav-tabs .nav-link:hover {
-	border-color: var(--pursuit-control-border);
+	border-color: var(--pursuit-purple);
+	color: var(--pursuit-purple);
 }
 
 .pursuit-theme .nav-tabs .nav-link.active {
-	border-color: var(--pursuit-black);
-	background: var(--pursuit-black);
-	color: var(--pursuit-white);
+	border-color: var(--pursuit-purple);
+	background: var(--pursuit-purple);
+	color: #ffffff;
 }
 
 .pursuit-editor {
@@ -281,19 +384,51 @@ body.pursuit-theme::before {
 }
 
 .pursuit-theme #message {
-	min-height: 48dvh;
-	padding: clamp(18px, 2.5vw, 34px);
-	border: 1px solid var(--pursuit-control-border);
-	border-radius: 22px;
-	background: var(--pursuit-gray);
-	font-family: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-	font-size: clamp(1rem, 1.4vw, 1.15rem);
+	min-height: 46dvh;
+	padding: clamp(18px, 2.5vw, 28px);
+	border: 1px solid var(--pursuit-divider);
+	border-radius: 12px;
+	background: var(--pursuit-control-alt);
+	color: var(--pursuit-ink);
+	font-family: "Proxima Nova", sans-serif;
+	font-size: clamp(1rem, 1.3vw, 1.12rem);
 	line-height: 1.6;
 	caret-color: var(--pursuit-purple);
+	resize: vertical;
 }
 
-.pursuit-theme #message::placeholder {
-	color: color-mix(in srgb, var(--pursuit-black) 55%, transparent);
+.pursuit-theme #message:hover {
+	border-color: color-mix(in srgb, var(--pursuit-purple) 55%, var(--pursuit-divider));
+}
+
+.pursuit-theme #prettymessage,
+.pursuit-theme #plaintext {
+	min-height: 32dvh;
+	border: 1px solid var(--pursuit-divider);
+	border-radius: 12px;
+	background: var(--pursuit-control-alt);
+	color: var(--pursuit-ink);
+}
+
+.pursuit-theme #prettymessage pre,
+.pursuit-theme #plaintext {
+	padding: clamp(18px, 2.5vw, 28px);
+}
+
+.pursuit-theme #copyShortcutHint {
+	gap: 16px;
+	margin: 0 0 12px !important;
+	color: var(--pursuit-muted);
+	font-size: 0.95rem;
+	font-weight: 400;
+}
+
+.pursuit-theme kbd {
+	border: 1px solid var(--pursuit-divider);
+	border-radius: 4px;
+	background: var(--pursuit-surface-alt);
+	color: var(--pursuit-ink);
+	box-shadow: none;
 }
 
 .pursuit-compose-controls {
@@ -308,16 +443,16 @@ body.pursuit-theme::before {
 .pursuit-settings-panel {
 	display: block;
 	width: 100%;
-	padding: clamp(20px, 3vw, 32px);
-	border: 1px solid var(--pursuit-control-border);
-	border-radius: 28px;
-	background: color-mix(in srgb, var(--pursuit-gray) 84%, var(--pursuit-white));
+	padding: clamp(16px, 2.5vw, 22px);
+	border: 1px solid var(--pursuit-divider);
+	border-radius: 18px;
+	background: var(--pursuit-surface-alt);
 }
 
 .pursuit-settings-list {
 	display: grid;
 	grid-template-columns: repeat(2, minmax(0, 1fr));
-	gap: 12px !important;
+	gap: 10px !important;
 	width: 100%;
 	min-width: 0;
 	margin: 0 !important;
@@ -334,10 +469,11 @@ body.pursuit-theme::before {
 .pursuit-settings-list .pursuit-option:not(.pursuit-option--attach),
 .pursuit-settings-list .pursuit-option--burn,
 .pursuit-settings-list .pursuit-option--password {
-	min-height: 66px;
-	border: 1px solid var(--pursuit-control-border);
-	border-radius: 18px;
-	background: var(--pursuit-control-surface);
+	min-height: 60px;
+	border: 1px solid var(--pursuit-divider);
+	border-radius: 8px;
+	background: var(--pursuit-control);
+	box-shadow: var(--pursuit-shadow-sm);
 }
 
 .pursuit-settings-list #expiration:not(.hidden),
@@ -346,22 +482,25 @@ body.pursuit-theme::before {
 	grid-template-columns: auto minmax(0, 1fr);
 	gap: 12px;
 	align-items: center;
-	padding: 8px 10px 8px 18px;
+	padding: 6px 8px 6px 16px;
 }
 
 .pursuit-settings-list #expiration .form-label,
 .pursuit-settings-list #formatter .form-label {
 	margin: 0 !important;
-	font-weight: 600;
+	color: var(--pursuit-ink);
+	font-size: 0.95rem;
+	font-weight: 700;
 	white-space: nowrap;
 }
 
 .pursuit-settings-panel .form-select {
 	min-width: 0;
-	min-height: 48px;
+	min-height: 46px;
 	border: 0;
-	border-radius: 12px;
-	background-color: color-mix(in srgb, var(--pursuit-gray) 72%, var(--pursuit-control-surface));
+	border-radius: 6px;
+	background-color: var(--pursuit-control-alt);
+	font-size: 0.95rem;
 	font-weight: 600;
 }
 
@@ -369,18 +508,21 @@ body.pursuit-theme::before {
 .pursuit-settings-list #opendiscussionoption {
 	display: flex;
 	align-items: center;
-	min-height: 64px;
+	min-height: 58px;
 	margin: 0;
-	padding: 14px 18px;
+	padding: 12px 16px;
+	color: var(--pursuit-ink);
+	font-weight: 600;
 }
 
 .pursuit-settings-list .form-check-input {
 	float: none;
 	flex: 0 0 auto;
-	width: 1.3em;
-	height: 1.3em;
+	width: 1.25em;
+	height: 1.25em;
 	margin: 0 10px 0 0;
-	border-color: var(--pursuit-control-border);
+	border-color: var(--pursuit-divider);
+	border-radius: 4px;
 }
 
 .pursuit-theme .form-check-input:checked {
@@ -397,40 +539,58 @@ body.pursuit-theme::before {
 
 .pursuit-settings-list #password .input-group {
 	overflow: hidden;
-	border-radius: 18px;
+	border-radius: 8px;
 }
 
 .pursuit-settings-list #passwordinput {
 	width: 1%;
 	min-width: 0;
-	min-height: 64px;
-	padding-inline: 18px;
+	min-height: 58px;
+	padding-inline: 16px;
 	border: 0;
 	border-radius: 0;
 	background: transparent;
 }
 
 .pursuit-settings-list #password .toggle-password {
-	width: 58px;
-	min-height: 64px;
+	width: 54px;
+	min-height: 58px;
 	border: 0;
-	border-left: 1px solid var(--pursuit-control-border);
+	border-left: 1px solid var(--pursuit-divider);
 	border-radius: 0;
+	background: transparent;
+	color: var(--pursuit-muted);
 }
 
 .pursuit-settings-list #password .toggle-password:hover {
 	transform: none;
+	background: var(--pursuit-control-alt);
+	color: var(--pursuit-purple);
 }
 
 .pursuit-settings-list #attach .nav-link {
 	display: flex;
 	align-items: center;
-	min-height: 66px;
-	padding: 14px 18px;
-	border: 1px solid color-mix(in srgb, var(--pursuit-purple) 48%, transparent);
-	border-radius: 18px;
-	background: color-mix(in srgb, var(--pursuit-purple) 9%, var(--pursuit-control-surface));
+	min-height: 60px;
+	padding: 12px 16px;
+	border: 1px solid var(--pursuit-purple);
+	border-radius: 8px;
+	background: transparent;
+	color: var(--pursuit-purple);
 	font-weight: 600;
+	transition: background-color 160ms ease, color 160ms ease;
+}
+
+.pursuit-settings-list #attach .nav-link:hover,
+.pursuit-settings-list #attach .nav-link[aria-expanded="true"] {
+	background: var(--pursuit-purple);
+	color: #ffffff;
+}
+
+.pursuit-settings-list #attach .dropdown-menu {
+	padding: 12px !important;
+	background: var(--pursuit-surface);
+	box-shadow: var(--pursuit-shadow-card);
 }
 
 .pursuit-settings-list .pursuit-option--actions {
@@ -455,79 +615,179 @@ body.pursuit-theme::before {
 }
 
 .pursuit-theme .btn {
-	min-height: 48px;
-	border: 2px solid var(--pursuit-black);
-	border-radius: 999px;
-	font-family: "Galano Grotesque", "Helvetica Neue", Helvetica, sans-serif;
+	min-height: 44px;
+	padding: 10px 18px;
+	border: 1px solid transparent;
+	border-radius: 8px;
+	font-family: "Proxima Nova", sans-serif;
+	font-size: 0.95rem;
 	font-weight: 700;
-	letter-spacing: 0.04em;
-	text-transform: uppercase;
-	transition: transform 180ms ease, background-color 180ms ease;
+	letter-spacing: 0;
+	text-transform: none;
+	transition: transform 180ms var(--pursuit-ease), box-shadow 180ms ease, background-color 180ms ease, border-color 180ms ease;
 }
 
 .pursuit-theme .btn:hover {
-	transform: translateX(3px);
+	transform: translateY(-1px);
+	box-shadow: var(--pursuit-shadow-sm);
+}
+
+.pursuit-theme .btn:active {
+	transform: translateY(0);
+	box-shadow: none;
+}
+
+.pursuit-theme .btn-sm {
+	min-height: 36px;
+	padding: 7px 12px;
+	font-size: 0.85rem;
 }
 
 .pursuit-theme .btn-primary,
 .pursuit-theme .btn-success {
-	border-color: #121212;
+	border-color: var(--pursuit-purple);
 	background: var(--pursuit-purple);
 	color: #ffffff;
 }
 
 .pursuit-theme .btn-primary:hover,
 .pursuit-theme .btn-success:hover {
-	border-color: #121212;
-	background: var(--pursuit-purple-muted);
+	border-color: var(--pursuit-purple-hover);
+	background: var(--pursuit-purple-hover);
 	color: #ffffff;
 }
 
-.pursuit-theme .btn-secondary {
-	background: var(--pursuit-black);
-	color: var(--pursuit-white);
+.pursuit-theme .btn-secondary,
+.pursuit-theme .btn-outline-secondary {
+	border-color: var(--pursuit-carbon);
+	background: var(--pursuit-carbon);
+	color: #ffffff;
+}
+
+[data-bs-theme="dark"] .pursuit-theme .btn-secondary,
+[data-bs-theme="dark"] .pursuit-theme .btn-outline-secondary {
+	border-color: var(--pursuit-divider);
+	background: var(--pursuit-control-alt);
+	color: var(--pursuit-ink);
+}
+
+.pursuit-theme .btn-danger {
+	border-color: var(--pursuit-danger);
+	background: var(--pursuit-danger);
+	color: #ffffff;
 }
 
 .pursuit-create-row {
+	position: relative;
 	display: flex;
 	gap: 24px;
 	align-items: center;
 	justify-content: space-between;
+	overflow: hidden;
 	margin-top: 14px;
-	padding: 18px 20px 18px 24px;
-	border-radius: 22px;
-	background: var(--pursuit-black);
-	color: var(--pursuit-white);
+	padding: 20px 22px 20px 24px;
+	border-radius: 18px;
+	background: #ffffff;
+	color: #1e1e1e;
 }
 
 .pursuit-create-row p {
+	position: relative;
+	z-index: 1;
 	max-width: 620px;
 	margin: 0;
-	font-size: 0.95rem;
+	font-size: 1rem;
 	line-height: 1.45;
 }
 
 .pursuit-theme #sendbutton {
-	min-height: 58px;
-	padding-inline: 28px;
+	position: relative;
+	z-index: 1;
+	min-height: 50px;
+	padding-inline: 22px;
+	border-color: var(--pursuit-purple);
+	background: var(--pursuit-purple);
+	color: #ffffff;
 	white-space: nowrap;
+}
+
+.pursuit-theme #sendbutton svg {
+	color: #ffffff;
 }
 
 .pursuit-theme #sendbutton:hover {
 	transform: none;
+	border-color: var(--pursuit-purple-hover);
+	background: var(--pursuit-purple-hover);
+	box-shadow: none;
+	color: #ffffff;
+}
+
+.pursuit-theme #pastesuccess .nav {
+	gap: 10px;
+	margin-bottom: 12px !important;
+}
+
+.pursuit-theme #pastesuccess .alert-success {
+	align-items: center;
+	font-size: 1rem;
+}
+
+.pursuit-theme #pastelink {
+	min-width: 0;
+	overflow-wrap: anywhere;
+}
+
+.pursuit-theme #pastelink a {
+	color: #3232ba;
+	font-weight: 700;
+}
+
+.pursuit-theme .modal-content {
+	overflow: hidden;
+	border-radius: 18px;
+	background: var(--pursuit-surface);
+	box-shadow: var(--pursuit-shadow-card);
+}
+
+.pursuit-theme .modal-header {
+	padding: 20px 22px;
+	border-bottom-color: var(--pursuit-divider);
+}
+
+.pursuit-theme .modal-title {
+	color: var(--pursuit-ink);
+	font-size: 1.25rem;
+	font-weight: 700;
+	line-height: 1.3;
+}
+
+.pursuit-theme .modal-body {
+	padding: 22px;
+}
+
+.pursuit-theme .dropdown-item {
+	border-radius: 6px;
+	color: var(--pursuit-ink);
+}
+
+.pursuit-theme .dropdown-item:hover,
+.pursuit-theme .dropdown-item:focus {
+	background: color-mix(in srgb, var(--pursuit-purple) 10%, var(--pursuit-surface));
+	color: var(--pursuit-purple);
 }
 
 .pursuit-theme footer {
-	padding: 34px clamp(16px, 4vw, 56px) 38px;
-	border-top: 0;
-	background: #121212;
-	color: #ffffff;
+	padding: 30px clamp(20px, 4vw, 48px) 36px;
+	border-top: 1px solid var(--pursuit-divider);
+	background: var(--pursuit-canvas);
+	color: var(--pursuit-muted);
 }
 
 .pursuit-theme footer .row {
 	align-items: baseline;
 	justify-content: center;
-	max-width: 1440px;
+	max-width: 1200px;
 	margin-inline: auto;
 }
 
@@ -535,11 +795,13 @@ body.pursuit-theme::before {
 	max-width: 780px;
 	margin: 0 auto;
 	text-align: center;
+	font-size: 0.9rem;
 	line-height: 1.5;
 }
 
 .pursuit-theme footer a {
-	color: #ecff00;
+	color: var(--pursuit-yellow);
+	font-weight: 700;
 }
 
 @media (max-width: 899.98px) {
@@ -549,13 +811,16 @@ body.pursuit-theme::before {
 			"note"
 			"notice";
 		grid-template-columns: 1fr;
-		row-gap: 22px;
+		row-gap: 20px;
 	}
 
-	.pursuit-intro__note {
-		max-width: 620px;
-		padding-top: 18px;
-		border-top: 2px solid rgb(255 255 255 / 55%);
+	.pursuit-intro__title {
+		align-self: auto;
+	}
+
+	.pursuit-intro__note,
+	.pursuit-intro__notice {
+		max-width: 62ch;
 	}
 
 	.pursuit-global-controls {
@@ -595,48 +860,57 @@ body.pursuit-theme::before {
 }
 
 @media (max-width: 639.98px) {
+	body.pursuit-theme::before {
+		height: 5px;
+	}
+
 	.pursuit-theme .navbar {
-		padding: 16px 14px;
+		margin-top: 5px !important;
+		padding: 16px 14px 14px;
 	}
 
 	.pursuit-theme .navbar-brand {
-		font-size: 1.28rem;
+		gap: 10px;
+		font-size: 1.2rem;
 	}
 
 	.pursuit-theme .navbar-brand img {
-		width: 44px;
-		height: 44px;
-		border-radius: 10px;
+		width: 42px;
+		height: 42px;
 	}
 
 	.pursuit-theme main {
-		padding-top: 8px;
-		padding-bottom: 48px;
+		padding: 0 14px 48px;
 	}
 
 	.pursuit-intro {
-		padding: 28px 22px 30px;
-		border-radius: 28px;
-	}
-
-	.pursuit-intro::after {
-		top: -68px;
-		right: -68px;
+		margin-bottom: 16px;
+		padding: 30px 22px 26px;
+		border-radius: 18px;
 	}
 
 	.pursuit-intro h1 {
-		font-size: clamp(3rem, 15vw, 4.4rem);
+		font-size: clamp(3rem, 15vw, 4.25rem);
+	}
+
+	.pursuit-intro__note {
+		font-size: 1.1rem;
+	}
+
+	.pursuit-workspace__card {
+		padding: 14px;
+		border-radius: 18px;
 	}
 
 	.pursuit-theme #message {
 		min-height: 44dvh;
-		border-radius: 18px;
+		padding: 18px;
+		border-radius: 12px;
 	}
 
 	.pursuit-settings-panel {
-		gap: 22px;
-		padding: 20px 16px;
-		border-radius: 22px;
+		padding: 12px;
+		border-radius: 12px;
 	}
 
 	.pursuit-settings-list {
@@ -650,13 +924,23 @@ body.pursuit-theme::before {
 	.pursuit-create-row {
 		align-items: stretch;
 		flex-direction: column;
+		gap: 18px;
 		padding: 20px;
+		border-radius: 12px;
 	}
 
 	.pursuit-theme #sendbutton {
 		width: 100%;
 	}
 
+	.pursuit-theme #pastesuccess .nav {
+		align-items: stretch;
+		flex-direction: column;
+	}
+
+	.pursuit-theme #pastesuccess .btn {
+		width: 100%;
+	}
 }
 
 @media (prefers-reduced-motion: reduce) {
